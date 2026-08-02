@@ -1,0 +1,251 @@
+
+/* ==================================
+   VARIABLES & GLOBAL SETUP
+================================== */
+:root {
+    --font-primary: 'BeVietnamPro-Regular';
+}
+
+/* ==================================
+   GALLERY SECTION & CONTAINER LAYOUT
+================================== */
+.gallery-wrapper {
+    background: #F6EFE7;
+    width: 100%;
+    padding: 60px 0;
+}
+
+.gallery-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* ==================================
+   HEADER
+================================== */
+.gallery-header {
+    margin-bottom: 35px;
+    text-align: left;
+}
+
+.gallery-small-title {
+    margin-bottom: 10px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #8C7357;
+    text-transform: uppercase;
+}
+
+.gallery-header h2 {
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: 38px;
+    font-weight: 700;
+    color: #2D1B13;
+}
+
+/* ==================================
+   GALLERY GRID (3 Columns)
+================================== */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+/* ==================================
+   CARD DESIGN
+================================== */
+.gallery-card {
+    background: #FFF;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative; 
+    overflow: hidden;   
+}
+
+/* ==================================
+   IMAGE BOX & HOVER SEARCH ICON
+================================== */
+.gallery-image-box {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: #eee;
+    position: relative;
+}
+
+.gallery-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-image-box img {
+    transform: scale(1.05);
+}
+
+/* Hidden Search Icon Circle */
+.gallery-image-box::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 48px;
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+    z-index: 3;
+    
+    background-image: url(https://www.theremodelingoutlet.com/static/version1772015006/frontend/Kitchen365/RemodelingOutlet/en_US/images/gallery-search.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card a:hover .gallery-image-box::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Optional Dark Backdrop Tint on Hover */
+.gallery-image-box::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-card a:hover .gallery-image-box::before {
+    opacity: 1;
+}
+
+/* ==================================
+   CARD TITLE BAR (Slide-up Overlay Effect)
+================================== */
+.gallery-card-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9); /* Fixed solid/clean white transparent background */
+    
+    /* Animation & Hide setup */
+    transform: translateY(100%); 
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease-out;
+    z-index: 4;
+}
+
+.gallery-card-title h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2D1B13;
+    letter-spacing: 0.5px;
+}
+
+.gallery-card a:hover .gallery-card-title {
+    transform: translateY(0);
+    opacity: 1;    
+}
+
+/* ==================================
+   BUTTON
+================================== */
+.gallery-button {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.gallery-button a {
+    display: inline-block;
+    padding: 14px 40px;
+    background: #2D1B13;
+    color: #FFF;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.gallery-button a:hover {
+    background: #4a3023;
+}
+@media (max-width: 1024px) {
+    .gallery-container {
+        padding: 0 20px;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* ==================================
+   Responsive
+================================== */
+@media (max-width: 600px) {
+    .gallery-wrapper {
+        padding: 40px 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .gallery-header h2 {
+        font-size: 26px;
+    }
+
+    .gallery-image-box {
+        height: 250px; 
+    }
+
+ 
+    .gallery-card a {
+        overflow: visible;
+    }
+
+    .gallery-card-title {
+        position: relative !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        background: #FFFFFF !important;
+        padding: 14px 15px;
+        box-shadow: none;
+    }
+
+    .gallery-image-box::after,
+    .gallery-image-box::before {
+        display: none !important;
+    }
+}

@@ -1,0 +1,348 @@
+/* ===========================
+   SHOP BY CATEGORY
+=========================== */
+
+:root {
+    --font-primary: 'BeVietnamPro-Regular';
+}
+
+.sf-category-section{
+    background:#faf6f0;
+}
+
+.sf-category-container{
+    max-width:1250px;
+    margin:auto;
+    padding:0 20px;
+    margin-bottom: 20px
+}
+
+/* ===========================
+   HEADING
+=========================== */
+
+.sf-category-heading{
+    position:relative;
+    text-align:center;
+    font-size:35px;
+    font-weight:600;
+    color:#3b2418;
+    margin-bottom:70px;
+    font-family: var(--font-primary);;
+    padding: 20px;
+        margin-bottom: 10px;
+}
+
+.sf-category-heading::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:8px;
+    transform:translateX(-50%);
+    width:55px;
+    height:3px;
+    border-radius:30px;
+    background:#c79a42;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.sf-category-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:18px;
+    justify-items:center;
+    align-items:start;
+    padding: 10px;
+
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.sf-category-card{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sf-category-card:hover{
+    transform:translateY(-6px);
+}
+
+.sf-category-card span{
+    margin-top:8px;
+    font-size:12px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    color:#5b3926;
+}
+
+/* ===========================
+   ICON
+=========================== */
+
+.sf-category-icon{
+    width:112px;
+    height:90px;
+    background:url("/static/images/category-icons.png") no-repeat;
+    background-size:1200px auto;
+    overflow:hidden;
+}
+
+/* ===========================
+   SPRITES
+=========================== */
+
+.icon-heels{
+    background-position:-125px -200px;
+    width:111px;
+    height:104px;
+    transform:scale(.75);
+    margin-top:8px;
+}
+
+.icon-flats{
+    background-position:-343px -201px;
+    width:154px;
+    height:101px;
+    transform:scale(.75);
+    margin-top:9px;
+}
+
+.icon-sandals{
+    background-position:-610px -192px;
+    width:137px;
+    height:111px;
+    transform:scale(.72);
+}
+
+.icon-sneakers{
+    background-position:-567px -420px;
+    width:156px;
+    height:110px;
+    transform:scale(.72);
+}
+
+.icon-boots{
+    background-position:-362px -432px;
+    width:125px;
+    height:108px;
+    transform:scale(.75);
+}
+
+.icon-school{
+    background-position:-568px -420px;
+    width:154px;
+    height:107px;
+    transform:scale(.72);
+}
+
+.icon-party{
+    background-position:-832px -421px;
+    width:116px;
+    height:107px;
+    transform:scale(.72);
+}
+
+.icon-sports{
+    background-position:-1033px -423px;
+    width:146px;
+    height:107px;
+    transform:scale(.72);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+/* Laptop */
+@media (max-width:1200px){
+
+    .sf-category-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:20px 15px;
+    }
+
+    .sf-category-heading{
+        font-size:38px;
+    }
+
+}
+
+/* Tablet */
+@media (max-width:992px){
+
+    .sf-category-section{
+        padding:55px 0;
+    }
+
+    .sf-category-container{
+        padding:0 15px;
+        margin-top: -64px;
+        margin-bottom: -49px;
+    }
+
+    .sf-category-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:18px 10px;
+    }
+
+    .sf-category-card{
+        transform:none;
+    }
+
+    .sf-category-icon{
+        transform:scale(.72);
+    }
+
+    .sf-category-heading{
+        font-size:32px;
+        
+    }
+
+}
+
+/* Small Tablet */
+@media (max-width:768px){
+
+    .sf-category-section{
+        padding:45px 0;
+    }
+
+    .sf-category-container{
+        padding:0 12px;
+    }
+
+    .sf-category-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:12px 6px;
+    }
+
+    .sf-category-card{
+        transform:none;
+    }
+
+    .sf-category-icon{
+        transform:scale(.66);
+    }
+
+    .sf-category-card span{
+        font-size:11px;
+        margin-top:3px;
+    }
+
+    .sf-category-heading{
+        font-size:28px;
+        margin-bottom:45px;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:576px){
+
+    .sf-category-section{
+        padding:35px 0;
+    }
+
+    .sf-category-container{
+        padding:0 8px;
+        overflow:hidden;
+    }
+
+    .sf-category-grid{
+        width:100%;
+        grid-template-columns:repeat(3,1fr);
+        justify-items:center;
+        align-items:start;
+        gap:8px 2px;
+        margin:0;
+        padding:0;
+    }
+
+    .sf-category-card{
+        width:100%;
+        transform:none;
+    }
+
+    .sf-category-icon{
+        transform:scale(.60);
+        margin:0 auto;
+    }
+
+    .sf-category-card span{
+        margin-top:2px;
+        font-size:10px;
+    }
+
+    .sf-category-heading{
+        font-size:24px;
+        margin-bottom:35px;
+    }
+
+    .sf-category-heading::after{
+        width:38px;
+        height:2px;
+    }
+
+}
+
+/* Small Mobile */
+@media (max-width:420px){
+
+    .sf-category-container{
+        padding:0 5px;
+        overflow:hidden;
+        margin-top: -47px;
+        margin-bottom: -20px;
+    }
+
+    .sf-category-grid{
+        width:100%;
+        grid-template-columns:repeat(3,1fr);
+        justify-items:center;
+        align-items:start;
+        gap:4px 0;
+        margin:0;
+        padding:0;
+        margin-top: -35px;
+    }
+
+    .sf-category-card{
+        width:100%;
+        transform:none;
+        position: relative;
+        left: -24px;
+    }
+
+    .sf-category-icon{
+        transform:scale(.54);
+        margin:0 auto;
+    }
+
+    .sf-category-card span{
+        font-size:9px;
+        margin-top:0;
+    }
+
+    .sf-category-heading{
+        font-size:22px;
+        margin-bottom:32px;
+    }
+
+    .sf-category-heading::after{
+        width:34px;
+    }
+
+}

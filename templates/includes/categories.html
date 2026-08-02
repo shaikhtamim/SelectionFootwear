@@ -1,0 +1,47 @@
+{% load static %}
+<section class="categories">
+
+    <div class="category-header">
+
+        <h2>New Arrivals</h2>
+    </div>
+
+    {% if home_products %}
+
+    <div class="owl-carousel owl-theme category-slider">
+
+        {% for product in home_products %}
+
+        <div class="category-card">
+
+            {% if product.primary_image %}
+
+                <img src="{{ product.primary_image.image.url }}"
+                     alt="{{ product.name }}">
+
+            {% else %}
+
+                <img src="{% static 'images/no-image.png' %}"
+                     alt="No Image">
+
+            {% endif %}
+
+            <h3>{{ product.name }}</h3>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty-notice" role="status">
+
+        <p>No Categories Found.</p>
+
+    </div>
+
+    {% endif %}
+
+</section>

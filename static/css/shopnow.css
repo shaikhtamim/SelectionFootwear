@@ -1,0 +1,202 @@
+/* ===================================
+   SHOP CATEGORY SECTION
+====================================== */
+
+
+
+.shop-sec-wrapper{
+    width:100%;
+    max-width:1200px;
+    margin:40px auto;
+    padding:0 15px;
+    box-sizing:border-box;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.shop-sec-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* ===================================
+   COMMON BANNER CARD
+====================================== */
+
+.shop-sec-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:8px;
+
+    /* Reduced banner height */
+    height: 297px;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+/* Image */
+
+.shop-sec-image-link{
+    display:block;
+    width:100%;
+    height:100%;
+}
+
+.shop-sec-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .4s ease;
+}
+
+.shop-sec-item:hover .shop-sec-img{
+    transform:scale(1.03);
+}
+
+/* Overlay */
+
+.shop-sec-item::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        rgba(0,0,0,.08) 0%,
+        rgba(0,0,0,0) 45%
+    );
+    z-index:1;
+}
+
+/* ===================================
+   BUTTON POSITION
+====================================== */
+
+.shop-sec-overlay{
+    position:absolute;
+    left:8%;
+    bottom:12%;
+    z-index:2;
+}
+
+/* ===================================
+   BUTTON
+====================================== */
+
+.shop-sec-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    text-decoration:none;
+
+    background:#2b1f18;
+    color:#fff;
+
+    padding:12px 26px;
+
+    border-radius:3px;
+
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    transition:.3s;
+}
+
+.shop-sec-btn:hover{
+    background:#4d3426;
+    transform:translateY(-2px);
+}
+
+.shop-sec-btn span{
+    transition:.3s;
+}
+
+.shop-sec-btn:hover span{
+    transform:translateX(4px);
+}
+
+/* ===================================
+   TABLET
+====================================== */
+
+@media(max-width:992px){
+
+    .shop-sec-grid{
+        gap:15px;
+    }
+
+    .shop-sec-item{
+        height:220px;
+    }
+
+    .shop-sec-overlay{
+        left:7%;
+        bottom:10%;
+    }
+
+    .shop-sec-btn{
+        padding:10px 22px;
+        font-size:11px;
+    }
+
+}
+
+/* ===================================
+   MOBILE
+====================================== */
+
+@media(max-width:768px){
+
+    .shop-sec-grid{
+        grid-template-columns:1fr;
+    }
+
+    .shop-sec-item{
+        height:200px;
+    }
+
+    .shop-sec-overlay{
+        left:6%;
+        bottom:8%;
+    }
+
+}
+
+/* ===================================
+   SMALL MOBILE
+====================================== */
+
+@media(max-width:480px){
+
+    .shop-sec-wrapper{
+        padding:0 12px;
+    }
+
+    .shop-sec-grid{
+        gap:12px;
+    }
+
+    .shop-sec-item{
+        height:170px;
+        border-radius:6px;
+    }
+
+    .shop-sec-overlay{
+        left:5%;
+        bottom:7%;
+    }
+
+    .shop-sec-btn{
+        padding:8px 18px;
+        font-size:10px;
+        letter-spacing:1px;
+    }
+
+}

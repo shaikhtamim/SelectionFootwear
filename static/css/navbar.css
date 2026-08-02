@@ -1,0 +1,642 @@
+/* ==========================================
+   BLACKWOOD-STYLE PAGE HEADER
+========================================== */
+:root {
+    --theme-primary: #2D1B13;      /* logo dark brown */
+    --theme-secondary: #3A2418;    /* deep brown */
+    --theme-alter: #B8894F;        /* logo bronze / gold */
+    --theme-highlight: #C9A36A;    /* cream-gold accent */
+    --theme-black: #2D1B13;
+    --theme-dark: #3D1C08;
+    --theme-cream: #f7e8d8;        /* soft cream */
+    --theme-cream-soft: #FBF7F1;
+    --header-max: 1580px;
+    --font-primary: 'BeVietnamPro-Regular';
+}
+
+html {
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.page-header {
+    background-color: var(--theme-cream);
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page-header .panel.wrapper {
+    background-color: var(--theme-primary);
+}
+
+.page-header .panel.header {
+    max-width: var(--header-max);
+    margin: 0 auto;
+    padding: 6px 20px;
+    box-sizing: border-box;
+}
+
+.page-header .action.skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.page-header .action.skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+}
+
+/* Top contact bar */
+.top-header-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header-contact ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.top-header-contact .top-header-contact-info ul li {
+    padding-right: 45px;
+    margin: 0;
+}
+
+.top-header-contact .top-header-contact-info a {
+    position: relative;
+    padding-left: 25px;
+    color: var(--theme-cream);
+    font-family:var(--font-primary);
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.top-header-contact .top-header-contact-info a::before {
+    content: "";
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-size: 24px;
+    width: 24px;
+    height: 20px;
+}
+
+.top-header-contact .top-header-contact-info a.email-link {
+    padding-left: 35px;
+}
+
+.top-header-contact .top-header-contact-info a.email-link::before {
+    background-image: url("../images/top-mail.jpeg");
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 14px;
+    top: 50%;
+    transform: translateY(-40%);
+}
+
+.top-header-contact .top-header-contact-info a.phone-link::before {
+    background-image: url("../images/top-phone.png");
+    background-size: 20px;
+    
+}
+
+.top-header-contact .social.icons ul li {
+    margin: 0;
+    border-radius: 50%;
+    
+}
+
+.top-header-contact .social.icons a {
+    display: inline-block;
+    line-height: 0;
+}
+
+.top-header-contact .social.icons img {
+    vertical-align:middle;
+    width:25px;
+    height: auto;
+    display: block;
+    border-radius: 50%;
+}
+
+/* Main header bar — fixed height so logo size doesn't stretch the nav */
+.page-header .header.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    padding: 0 20px;
+    max-width: var(--header-max);
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+    overflow: visible;
+}
+
+.page-header .logo {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+.page-header .logo img {
+    padding-top: 19px;
+    max-width: 239px;
+    width: auto;
+    height: auto;
+    max-height: 270px;
+    display: block;
+    object-fit: contain;
+}
+
+/* Navigation */
+.page-header .nav-sections {
+    margin-bottom: 0;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.page-header .nav-sections-items {
+    width: 100%;
+}
+
+.page-header .nav-sections-item-title {
+    display: none;
+}
+
+/* Account drawer links — desktop uses the right-side header.links instead */
+.page-header #store-links {
+    display: none;
+}
+
+.page-header .navigation {
+    background: transparent;
+}
+
+.page-header .navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.page-header .navigation ul li {
+    padding: 0 12px;
+    margin: 0;
+}
+
+.page-header .navigation ul li a {
+    color: var(--theme-black);
+    font-family: var(--font-primary);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.84px;
+    position: relative;
+    padding: 0;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-block;
+}
+
+.page-header .navigation ul li a span {
+    display: inline-block;
+}
+
+.page-header .navigation ul li a span::after,
+.page-header .navigation ul li a::after {
+    display: none;
+}
+
+.page-header .navigation ul li a:hover,
+.page-header .navigation ul li.active a {
+    color: var(--theme-alter);
+}
+
+/* Header CTA links */
+.page-header > .header.content > .header.links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.page-header .header.links li {
+    margin: 0;
+}
+
+.page-header .header.links .registration-link,
+.page-header .header.links li.authorization-link a {
+    padding: 10px 15px;
+    border: 1px solid;
+    width: 155px;
+    display: block;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1.12px;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    border-radius: 3px;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.page-header .header.links .registration-link {
+    background-color: var( --theme-primary);
+    border-color: var(--theme-alter);
+      color: #fff;
+}
+
+.page-header .header.links .registration-link:hover {
+    background-color: var(--theme-primary);
+    border-color: var(--theme-primary);
+    color: #fff;
+}
+
+.page-header .header.links li.authorization-link a {
+    background-color: var(--theme-primary);
+    border-color: var(--theme-primary);
+    color: #fff;
+    margin-right: 15px;
+}
+
+.page-header .header.links li.authorization-link a:hover {
+    background-color: var(--theme-alter);
+    border-color: var(--theme-alter);
+    color: var(--theme-primary);
+}
+
+/* Nav toggle (mobile) */
+.action.nav-toggle {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 14;
+    width: 28px;
+    height: 22px;
+    font-size: 0;
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.action.nav-toggle::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--theme-black);
+    box-shadow: 0 8px 0 var(--theme-black), 0 16px 0 var(--theme-black);
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 998;
+}
+
+body.nav-open .nav-overlay {
+    display: block;
+}
+
+body.nav-open {
+    overflow: hidden;
+}
+
+/* Header + drawer must sit above overlay so links receive clicks */
+body.nav-open .page-header {
+    z-index: 1000;
+}
+
+body.nav-open .page-header .nav-sections {
+    z-index: 1001;
+}
+
+/* ==========================================
+   HOMEPAGE OVERLAY HEADER (cms-home)
+========================================== */
+.cms-home .page-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 11;
+    background-color: transparent;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.cms-home .page-header .header.content {
+    background-color: var(--theme-cream);
+    border-radius: 10px;
+    max-width: var(--header-max);
+    width: 100%;
+}
+
+.cms-home .page-header .panel.wrapper {
+    background-color: transparent;
+}
+
+.cms-home .page-header .header.panel {
+    padding-bottom: 16px;
+    padding-top: 16px;
+}
+
+.cms-home .top-header-contact .top-header-contact-info a {
+    color: var(--theme-cream);
+    font-family: var(--font-primary);
+    font-weight: bold;
+}
+
+.cms-home .top-header-contact .top-header-contact-info a.phone-link::before {
+    background-image: url("../images/home-phone.svg");
+}
+
+.cms-home .top-header-contact .top-header-contact-info a.email-link::before {
+    background-image: url("../images/home-mail.svg");
+}
+
+
+
+/* ==========================================
+   DESKTOP NAV SPACING
+========================================== */
+@media (min-width: 1280px) {
+    .page-header .navigation ul li {
+        padding: 0 30px;
+    }
+
+    .page-header .navigation ul li a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1640px) and (min-width: 1025px) {
+    .page-header .navigation ul li {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 1280px) and (min-width: 1025px) {
+    .page-header .navigation ul li {
+        padding: 0 8px;
+    }
+
+    .page-header .navigation ul li a {
+        font-size: 13px;
+    }
+
+    .page-header .header.links .registration-link,
+    .page-header .header.links li.authorization-link a {
+        width: 130px;
+        padding: 10px 8px;
+        font-size: 12px;
+    }
+}
+
+/* ==========================================
+   TABLET / MOBILE
+========================================== */
+@media (max-width: 1024px) {
+    .action.nav-toggle {
+        display: block;
+    }
+
+    .cms-home .action.nav-toggle::before,
+    .action.nav-toggle::before {
+        background: var(--theme-black);
+        box-shadow: 0 8px 0 var(--theme-black), 0 16px 0 var(--theme-black);
+    }
+
+    .page-header .header.content {
+        height: 80px;
+        padding: 0 20px;
+        justify-content: center;
+        overflow: visible;
+    }
+
+    .page-header .logo {
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: auto;
+        max-height: none;
+        z-index: 1;
+    }
+
+    .page-header .logo img {
+        padding-top: 25px;
+        width: 260px;
+        max-width: 70vw;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+    }
+
+    /* Hide desktop CTAs on mobile — shown inside drawer */
+    .page-header > .header.content > .header.links {
+        display: none;
+    }
+
+.page-header .nav-sections {
+                    display: block;
+                    position: fixed;
+                    top: 0;
+                    left: -100%;
+                    width: 85%;
+                    max-width: 360px;
+                    height: 100%;
+                    overflow: auto;
+                    -webkit-overflow-scrolling: touch;
+                    background: var(--theme-cream);
+                    z-index: 999;
+                    transition: left 0.3s ease;
+                    padding: 0;
+                    margin: 0;
+                    flex: none;
+                    justify-content: flex-start;
+                }
+
+    body.nav-open .page-header .nav-sections {
+        left: 0;
+    }
+
+    .page-header .nav-sections-item-title {
+        display: block;
+        padding: 14px 20px;
+        border-bottom: 1px solid #E5D9CC;
+        font-family: var(--font-primary);
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        background: var(--theme-cream-soft);
+    }
+
+    .page-header .nav-sections-item-title a {
+        color: var(--theme-secondary);
+        text-decoration: none;
+        display: block;
+    }
+
+    .page-header .nav-sections-item-title.active {
+        background: var(--theme-cream);
+    }
+
+    .page-header .nav-sections-item-content {
+        display: none;
+        padding: 0;
+    }
+
+    .page-header .nav-sections-item-title.active + .nav-sections-item-content {
+        display: block;
+    }
+
+    .page-header #store-links {
+        display: none;
+    }
+
+    .page-header .nav-sections-item-title.active + #store-links {
+        display: block;
+    }
+
+    .page-header .navigation ul {
+        display: block;
+        padding: 0;
+    }
+
+    .page-header .navigation ul li.level0 {
+        padding: 10px 8px;
+        margin: 0;
+        display: block;
+        border-top: 1px solid #E5D9CC;
+    }
+
+    .page-header .navigation ul li a {
+        padding-left: 15px;
+        text-transform: capitalize;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 18px;
+        color: var(--theme-secondary);
+    }
+
+    .page-header .navigation ul li.active a {
+        color: var(--theme-alter);
+    }
+
+    .page-header .nav-sections .header.links {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        padding: 16px;
+        margin: 0;
+        gap: 12px;
+    }
+
+    .page-header .nav-sections .header.links li.authorization-link a {
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .page-header .nav-sections .header.links .registration-link {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .action.nav-toggle {
+        top: 50%;
+    }
+
+    .page-header .logo img {
+        width: 220px;
+        max-width: 65vw;
+    }
+
+    .page-header .panel.header .top-header-contact {
+        display: block;
+    }
+
+    .page-header .panel.header .top-header-contact ul {
+        justify-content: center;
+    }
+
+    .page-header .panel.header .top-header-contact-info {
+        padding-bottom: 5px;
+        padding-top: 8px;
+    }
+
+    .page-header .panel.header .top-header-contact-info ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-header .panel.header .top-header-contact-info ul li {
+        padding-right: 0;
+    }
+
+    .social.icons {
+        padding: 10px 0;
+    }
+
+    .cms-home .page-header {
+        padding: 0 10px;
+    }
+
+    .cms-home .page-header .top-header-contact .top-header-contact-info ul li a {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-header-contact-info ul li a {
+        font-size: 12px;
+    }
+
+    .page-header .logo img {
+        padding-top: 17px;
+        width: 190px;
+        max-width: 60vw;
+    }
+}

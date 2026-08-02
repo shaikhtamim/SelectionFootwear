@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+Contact Us | Selection Footwear
+
+
+{% block content %}
+{% include "includes/popup.html" %}
+
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+
+<section class="contact-page">
+
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Home / Contact Us</p>
+    </div>
+
+    <div class="contact-container">
+
+        <!-- Left Side -->
+        <div class="contact-info">
+
+            <h2>Let's Talk</h2>
+
+            <p>
+                We'd love to hear from you. Whether you have questions about our
+                ladies' or kids' footwear collections, our team is ready to help.
+            </p>
+
+            <div class="info-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <h4>Address</h4>
+                    <span>Ahmedabad, Gujarat, India</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                    <h4>Phone</h4>
+                    <span>+91 9898221198</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                    <h4>Email</h4>
+                    <span>selectionfootwear.com</span>
+                </div>
+            </div>
+
+            <div class="social-icons">
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-whatsapp"></i></a>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+        <div class="contact-form">
+
+            <h2>Send Message</h2>
+            {% if messages %}
+    {% for message in messages %}
+        <div class="success-message">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+       <form method="POST">
+    {% csrf_token %}
+    <input
+        type="text"
+        name="full_name"
+        placeholder="Full Name"
+        required
+    >
+
+    <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required
+    >
+
+    <input
+        type="text"
+        name="subject"
+        placeholder="Subject"
+    >
+
+    <textarea
+        name="message"
+        rows="6"
+        placeholder="Your Message"
+    ></textarea>
+
+    <button type="submit">
+        Send Message
+    </button>
+
+</form>
+        </div>
+
+    </div>
+
+</section>
+
+{% include 'includes/footer.html' %}
+
+
+{% endblock %}

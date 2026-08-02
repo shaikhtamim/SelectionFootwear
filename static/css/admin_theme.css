@@ -1,0 +1,139 @@
+/*
+  Selection Footwear Admin Theme
+  Approach: Django default admin + override only required brand bits
+*/
+
+:root {
+    --sf-brown: #2D1B13;
+    --sf-brown-deep: #3A2418;
+    --sf-gold: #B8894F;
+    --sf-gold-soft: #C9A36A;
+    --sf-cream: #F6EFE7;
+    --sf-cream-soft: #FBF7F1;
+
+    --primary: var(--sf-brown);
+    --secondary: var(--sf-gold);
+    --accent: var(--sf-gold);
+    --primary-fg: #ffffff;
+
+    --body-fg: var(--sf-brown);
+    --body-bg: var(--sf-cream);
+    --body-quiet-color: #6B5548;
+    --body-loud-color: #1a100c;
+
+    --header-bg: var(--sf-brown);
+    --header-color: #ffffff;
+    --header-link-color: var(--sf-gold-soft);
+    --header-branding-color: #ffffff;
+
+    --breadcrumbs-fg: var(--sf-cream);
+    --breadcrumbs-link-fg: var(--sf-gold-soft);
+    --breadcrumbs-bg: var(--sf-brown-deep);
+
+    --link-fg: var(--sf-gold);
+    --link-hover-color: var(--sf-brown);
+    --link-selected-fg: #8f6a3a;
+
+    --hairline-color: rgba(45, 27, 19, 0.12);
+    --border-color: rgba(45, 27, 19, 0.14);
+    --darkened-bg: var(--sf-cream-soft);
+    --selected-bg: #efe4d6;
+    --selected-row: #efe4d6;
+
+    --button-bg: var(--sf-brown);
+    --button-hover-bg: var(--sf-gold);
+    --default-button-bg: var(--sf-brown);
+    --default-button-hover-bg: var(--sf-gold);
+    --close-button-bg: #6B5548;
+    --close-button-hover-bg: var(--sf-brown);
+}
+
+html[data-theme="dark"] {
+    --primary: var(--sf-gold-soft);
+    --secondary: var(--sf-gold);
+    --accent: var(--sf-gold-soft);
+    --primary-fg: #1a100c;
+
+    --body-fg: #f3ebe3;
+    --body-bg: #1c1410;
+    --body-quiet-color: #cbb9a8;
+    --body-loud-color: #ffffff;
+
+    --header-bg: #120c09;
+    --header-color: #f3ebe3;
+    --header-link-color: var(--sf-gold-soft);
+    --header-branding-color: #f3ebe3;
+
+    --breadcrumbs-fg: #f3ebe3;
+    --breadcrumbs-link-fg: var(--sf-gold-soft);
+    --breadcrumbs-bg: #2a1a12;
+
+    --link-fg: var(--sf-gold-soft);
+    --link-hover-color: #e0c08a;
+    --link-selected-fg: var(--sf-gold);
+
+    --hairline-color: rgba(255, 255, 255, 0.1);
+    --border-color: rgba(255, 255, 255, 0.12);
+    --darkened-bg: #241910;
+    --selected-bg: #332218;
+    --selected-row: #332218;
+
+    --button-bg: var(--sf-gold);
+    --button-hover-bg: var(--sf-gold-soft);
+    --default-button-bg: var(--sf-gold);
+    --default-button-hover-bg: var(--sf-gold-soft);
+}
+
+/* Required brand overrides only */
+body {
+    font-family: "Montserrat", "Segoe UI", sans-serif;
+}
+
+#header {
+    border-bottom: 3px solid var(--sf-gold);
+}
+
+#site-name a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sf-admin-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}
+
+.sf-admin-title {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.module caption,
+.module h2,
+.inline-group h2,
+#changelist-filter h2 {
+    background: var(--header-bg);
+    color: var(--header-color);
+}
+
+#nav-sidebar .current-model {
+    background: rgba(184, 137, 79, 0.16);
+}
+
+body.login {
+    background: var(--sf-cream);
+}
+
+body.login #header {
+    background: transparent;
+    border-bottom: none;
+    justify-content: center;
+    padding: 24px 0 8px;
+}
+
+body.login #container {
+    border-top: 3px solid var(--sf-gold);
+    border-radius: 4px;
+}

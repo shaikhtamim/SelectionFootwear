@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Women Collection | Selection Footwear
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/popup.html" %}
+
+<link rel="stylesheet" href="{% static 'css/women_collection.css' %}">
+
+<section class="collection-page">
+
+    <!-- Hero Banner -->
+    <section class="collection-banner">
+        <img src="{% static 'images/women-collection--banner.png' %}" alt="Women Collection">
+
+        <div class="collection-content">
+            <h1>Women's Collection</h1>
+            <p>Timeless designs crafted for comfort &amp; elegance.</p>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <div class="collection-top">
+
+        <div class="category-tabs">
+            <!-- Categories Here -->
+        </div>
+
+    </div>
+
+    <!-- Products -->
+    <div class="shop-content">
+
+        {% if products %}
+
+        <div class="products">
+
+            {% for product in products %}
+
+            <div class="product-card">
+
+                {% with image=product.primary_image %}
+                    {% if image %}
+                        <img src="{{ image.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="{% static 'images/categories/flats.png' %}" alt="{{ product.name }}">
+                    {% endif %}
+                {% endwith %}
+
+                <!-- Product Details -->
+                <div class="product-info">
+
+                    <h3 class="product-title">
+                        {{ product.name }}
+                    </h3>
+
+                    <a href="https://wa.me/919898881849?text=Hi,%20I%20want%20to%20know%20the%20price%20of%20{{ product.name }}"
+                       target="_blank"
+                       class="dm-btn">
+                        Contact for Price
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="collection-empty-notice">
+            <h3>No Products Available</h3>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj.paginator.num_pages > 1 %}
+
+    <div class="pagination">
+
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">←</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        <a href="?page={{ num }}"
+           class="{% if page_obj.number == num %}active{% endif %}">
+            {{ num }}
+        </a>
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">→</a>
+        {% endif %}
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% include "includes/footer.html" %}
+
+{% endblock %}

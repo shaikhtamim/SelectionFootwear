@@ -1,0 +1,306 @@
+/* ==========================================
+   SHOP BY CATEGORY (Clean & Updated CSS)
+========================================== */
+:root {
+    --font-primary: 'BeVietnamPro-Regular';
+}
+
+.categories {
+    padding: 55px 7%;
+    background: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.category-slider .owl-stage {
+    display: flex;
+    align-items: stretch;
+}
+
+.category-slider .owl-item {
+    float: none;
+}
+
+/* --- Card Setup --- */
+.category-slider .category-card {
+    background: #ffffff;
+    overflow: hidden;
+    text-align: left;
+    transition: .35s ease;
+    cursor: pointer;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .05);
+    padding: 0; 
+    height: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.category-slider .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
+}
+
+/* --- Image Setup (Full Frame Fit) --- */
+.category-slider img {
+    width: 100%; 
+    height: auto;
+    aspect-ratio: 4 / 3; 
+    object-fit: cover; 
+    object-position: center;
+    padding: 0;
+    display: block;
+    transition: transform .4s ease;
+}
+
+.category-slider .category-card:hover img {
+    transform: scale(1.05); /* Hover zoom effect */
+}
+
+/* --- Card Title --- */
+.category-slider h3 {
+    margin: 14px 15px 12px;
+    font-size: 18px;
+    color: #2D1B13;
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+}
+/* --- Navigation & Dots --- */
+.owl-nav {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.owl-nav button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50% !important;
+    background: #2D1B13 !important;
+    color: #fff !important;
+    font-size: 28px !important;
+    margin: 0 8px;
+    transition: .3s;
+}
+
+.owl-nav button:hover {
+    background: #B8894F !important;
+}
+
+.category-slider .owl-dots {
+    margin-top: 24px;
+    text-align: center;
+    line-height: 1;
+}
+
+.category-slider .owl-dots .owl-dot {
+    display: inline-block;
+    zoom: 1;
+    margin: 0 4px;
+}
+
+/* Default (Inactive) Dots - Light / Soft Grayish Brown */
+.owl-theme .owl-dots .owl-dot span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    margin: 4px;
+    border-radius: 50%;
+    background: #D5C2B1 !important; /* Normal inactivelight brown shade */
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+/* Active and Hover Dots - Main Dark Brown / Gold */
+.category-slider .owl-dots .owl-dot.active span,
+.category-slider .owl-dots .owl-dot:hover span {
+    background: #2D1B13 !important; /* Active dot dark brown  */
+    transform: scale(1.2);
+}
+/* ==========================================
+   HEADER
+========================================== */
+/* ==========================================
+   HEADER
+========================================== */
+
+.category-header{
+    text-align:center;
+    margin-bottom:55px;
+}
+
+.category-header h2{
+    position:relative;
+    display:inline-block;
+
+    font-family:var(--font-primary);
+    font-size:32px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    color:#2D1B13;
+
+    margin:0;
+    padding-bottom:18px;
+}
+
+/* Golden Line */
+
+.category-header h2::after{
+    content:"";
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:55px;
+    height:3px;
+
+    background:#C79A42;
+    border-radius:10px;
+}
+/* ==========================================
+   VIEW ALL BUTTON
+========================================== */
+.view-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background: #ffffff;
+    color: #2D1B13;
+    border: 1px solid #DDD1C4;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .35s ease;
+}
+
+.view-btn:hover {
+    background: #2D1B13;
+    color: #ffffff;
+}
+
+/* ==========================================
+   EMPTY NOTICE
+========================================== */
+.empty-notice {
+    width: 100%;
+    padding: 48px 24px;
+    text-align: center;
+    background: #FBF7F1;
+    border: 1px dashed #D8CFC5;
+    border-radius: 10px;
+    color: #2D1B13;
+}
+
+.empty-notice p {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.empty-notice span {
+    color: #6B5548;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+/* Tablet */
+@media (max-width:992px){
+
+    .categories{
+        padding:50px 30px;
+    }
+
+    .category-header{
+        margin-bottom:45px;
+    }
+
+    .category-header h2{
+        font-size:30px;
+        padding-bottom:16px;
+        
+    }
+
+    .category-header h2::after{
+        width:50px;
+        height:3px;
+    }
+
+    .category-slider h3{
+        font-size:16px;
+    }
+
+    .owl-nav button{
+        width:44px;
+        height:44px;
+        font-size:24px !important;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:576px){
+
+    .categories{
+        padding:40px 20px;
+    }
+
+    .category-header{
+        margin-bottom:35px;
+    }
+
+    .category-header h2{
+        font-size:24px;
+        padding-bottom:14px;
+    }
+
+    .category-header h2::after{
+        width:42px;
+        height:2px;
+    }
+
+    .category-slider h3{
+        font-size:15px;
+        margin:12px;
+    }
+
+    .owl-nav button{
+        width:38px;
+        height:38px;
+        font-size:20px !important;
+        margin:0 5px;
+    }
+
+    .owl-theme .owl-dots .owl-dot span{
+        width:8px;
+        height:8px;
+    }
+
+}
+
+/* Small Mobile */
+@media (max-width:400px){
+
+    .categories{
+        padding:35px 15px;
+    }
+
+    .category-header h2{
+        font-size:21px;
+    }
+
+    .category-header h2::after{
+        width:36px;
+    }
+
+    .category-slider h3{
+        font-size:14px;
+    }
+
+}

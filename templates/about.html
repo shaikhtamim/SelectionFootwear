@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+About Us | Selection Footwear
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+<section class="about-page">
+
+    <!-- Breadcrumb -->
+    <div class="about-header">
+        <p class="breadcrumb">
+            Home <span>/</span> About Us
+        </p>
+
+        <h1>About Selection Footwear</h1>
+    </div>
+
+    <div class="about-container">
+
+        <!-- Left Image -->
+        <div class="about-image">
+
+            <img src="{% static 'C:\Users\haroo\SelectionFootwear\static\images\about-us.png' %}" alt="Selection Footwear">
+
+        </div>
+
+        <!-- Right Content -->
+        <div class="about-content">
+
+            <span class="section-tag">
+                OUR STORY
+            </span>
+
+            <h2>
+                Premium Footwear Crafted <br>
+                for Women & Kids
+            </h2>
+
+            <p>
+                Selection Footwear is a trusted manufacturer and wholesaler
+                of premium ladies' and kids' footwear. We believe every pair
+                should combine comfort, quality, durability and elegant design.
+            </p>
+
+            <p>
+                Since our beginning, our mission has been to deliver stylish,
+                affordable and long-lasting footwear to retailers across India.
+                Every product is carefully designed using quality materials
+                with expert craftsmanship.
+            </p>
+
+            <div class="signature">
+                Selection Footwear
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="about-features">
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            <i class="fa-solid fa-gem"></i>
+        </div>
+
+        <h3>Premium Materials</h3>
+
+        <p>
+            Carefully selected materials for lasting quality.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            <i class="fa-solid fa-scissors"></i>
+        </div>
+
+        <h3>Expert Craftsmanship</h3>
+
+        <p>
+            Handcrafted with attention to every detail.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            <i class="fa-regular fa-compass"></i>
+        </div>
+
+        <h3>Timeless Design</h3>
+
+        <p>
+            Elegant styles that never go out of fashion.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <div class="feature-icon">
+            <i class="fa-regular fa-heart"></i>
+        </div>
+
+        <h3>Customer Satisfaction</h3>
+
+        <p>
+            Your satisfaction is our highest priority.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- COMPANY STATS -->
+
+<section class="about-stats">
+
+    <div class="stat-box">
+        <h2>40+</h2>
+        <p>Years Experience</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>500+</h2>
+        <p>Retail Partners</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>2000+</h2>
+        <p>Designs Available</p>
+    </div>
+
+    <div class="stat-box">
+        <h2>100%</h2>
+        <p>Quality Checked</p>
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}

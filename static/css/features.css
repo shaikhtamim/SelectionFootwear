@@ -1,0 +1,103 @@
+/* ==========================
+   FEATURES STRIP
+========================== */
+.features{
+    background:#ffffff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 4%; /* Slightly reduced side padding to give elements more breathing room */
+    border-top:1px solid #ece6df;
+    border-bottom:1px solid #ece6df;
+    gap:20px; /* Reduced gap slightly so 5 items easily fit in a single row */
+    flex-wrap:nowrap; /* FORCES everything to stay on a single line */
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+/* ==========================
+   FEATURE ITEM
+========================== */
+.feature-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex: 1 1 0%; /* Allows items to share the row space equally */
+    min-width: 0; /* Removes the rigid 180px boundary so they can adapt to one line */
+}
+
+/* ==========================
+   ICON
+========================== */
+.feature-item i{
+    width:52px;
+    height:52px;
+    flex-shrink: 0; /* Crucial: Prevents the circular icon from getting squished */
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:#F6EFE7;
+    color:#B8894F;
+    font-size:22px;
+    transition:.35s;
+
+}
+
+.feature-item:hover i{
+    background:#2D1B13;
+    color:#ffffff;
+    transform:translateY(-4px);
+}
+
+/* ==========================
+   TEXT
+========================== */
+.feature-item h4{
+    font-size:15px; /* Sized slightly down so text doesn't wrap awkwardly */
+    color:#2D1B13;
+    margin: 0 0 4px 0;
+    font-weight:600;
+    white-space: nowrap; /* Prevents title text from breaking into two lines */
+}
+
+.feature-item p{
+    font-size:13px;
+    color:#777;
+    margin:0;
+    white-space: nowrap; /* Prevents subtitle text from breaking into two lines */
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+@media (max-width: 992px) {
+    .features {
+        flex-wrap: wrap;
+        gap: 18px 16px;
+    }
+
+    .feature-item {
+        flex: 1 1 calc(50% - 16px);
+        min-width: 0;
+    }
+
+    .feature-item h4,
+    .feature-item p {
+        white-space: normal;
+    }
+}
+
+@media (max-width: 768px) {
+    .features {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        padding: 20px 16px;
+    }
+
+    .feature-item {
+        flex: 1 1 100%;
+    }
+}

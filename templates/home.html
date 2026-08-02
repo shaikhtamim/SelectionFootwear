@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home | Selection Footwear
+{% endblock %}
+
+{% block body_class %}cms-home{% endblock %}
+
+{% block content %}
+
+{% include 'includes/banner.html' %}
+{% include 'includes/features.html' %}
+{% include 'includes/shopnow.html' %}
+
+<!-- Shop by Category -->
+{% include 'includes/shoes.html' %}
+
+{% include 'includes/discover.html' %}
+{% include 'includes/categories.html' %}
+{% include 'includes/whychoose.html' %}
+{% include 'includes/testinomial.html' %}
+{% include 'includes/footer.html' %}
+
+{% endblock %}

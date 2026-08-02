@@ -1,0 +1,105 @@
+{% load static %}
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-column company">
+            <img src="{% static 'images/logo.png' %}"
+                 alt="Selection Footwear"
+                 class="footer-logo">
+
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/selectionfootwear.in?igsh=MXVjcTRoOTVic2ZmdA=="
+                   target="_blank"
+                   rel="noopener"
+                   aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-column quick-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>
+                    <a href="{% url 'home' %}">
+                        <i class="fas fa-angle-right"></i>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}">
+                        <i class="fas fa-angle-right"></i>
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'gallery' %}">
+                        <i class="fas fa-angle-right"></i>
+                        Gallery
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'contact' %}">
+                        <i class="fas fa-angle-right"></i>
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-column contact-footer">
+            <h3>Contact</h3>
+
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <a href="https://maps.app.goo.gl/hvKdq8CCj6ZHxmdK9" target="_blank" rel="noopener">
+                    Selection Footwear<br>
+                    Ahmedabad, Gujarat
+                </a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:+919898881849">+91 9898881849</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:selectionfootwer@gmail.com">selectionfootwer@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <span>Mon - Sat : 10:00 AM - 8:00 PM</span>
+            </div>
+        </div>
+
+        <div class="footer-column newsletter-column">
+            <h3>Newsletter</h3>
+            <p>
+                Subscribe to receive special offers,
+                latest arrivals and exclusive updates.
+            </p>
+            <form class="newsletter">
+                <input type="email" placeholder="Enter your email" aria-label="Email">
+                <button type="submit" aria-label="Subscribe">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Selection Footwear. All Rights Reserved.</p>
+    </div>
+
+</footer>

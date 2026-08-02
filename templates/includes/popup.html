@@ -1,0 +1,95 @@
+{% load static %}
+
+<div class="visitor-popup-overlay" id="visitorPopup">
+
+    <div class="visitor-popup">
+
+        <!-- LEFT -->
+        <div class="popup-left">
+
+            <img src="{% static 'images/logo.png' %}"
+                 alt="Selection Footwear Logo"
+                 class="popup-logo">
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="popup-right">
+
+            <div class="popup-heading">
+
+                <h2>
+                    Welcome to
+                    <span>Selection Footwear</span>
+                </h2>
+
+                <p>
+                    Please verify your business details to explore our premium wholesale ladies and kids footwear collection.
+                </p>
+
+            </div>
+
+          <form id="visitorForm" method="POST" action="{% url 'save_visitor' %}">
+
+                {% csrf_token %}
+
+                <div class="input-box">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Your Name"
+                        required>
+
+                </div>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-store"></i>
+
+                    <input
+                        type="text"
+                        name="shop_name"
+                        placeholder="Shop Name"
+                        required>
+
+                </div>
+        <div class="input-box">
+
+            <i class="fa-solid fa-phone"></i>
+
+                    <input type="tel"
+                    name="mobile"
+                    placeholder="Mobile Number"
+                    maxlength="10"
+                    minlength="10"
+                    pattern="[0-9]{10}"
+                    title="Something went wrong. Enter a valid 10 digit mobile number."
+                    inputmode="numeric"
+                    required>
+
+</div>
+
+                <button id="submitBtn" type="submit">
+
+                    Continue
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </form>
+
+            <div class="popup-note">
+
+                By continuing, you agree to our Terms & Conditions.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

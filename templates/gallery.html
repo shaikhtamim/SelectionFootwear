@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+{% include "includes/popup.html" %}
+<!-- Gallery CSS -->
+<link rel="stylesheet" href="{% static 'css/gallery.css' %}">
+
+<!-- Fancybox CSS -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+/>
+
+<section class="gallery-wrapper">
+    <div class="gallery-container">
+
+        <!-- HEADER -->
+        <div class="gallery-header">
+            <h2>Our Gallery</h2>
+        </div>
+
+        <!-- GALLERY GRID -->
+        <div class="gallery-grid">
+
+            {% for gallery in galleries %}
+
+            <div class="gallery-card">
+
+                <!-- Main Image Link -->
+                <a href="{{ gallery.main_image.url }}"
+                   data-fancybox="gallery-{{ gallery.id }}"
+                   data-caption="{{ gallery.title }}">
+
+                    <div class="gallery-image-box">
+                        <img src="{{ gallery.main_image.url }}" alt="{{ gallery.title }}">
+                    </div>
+
+                    <!-- Dynamic Title inside Card -->
+                    <div class="gallery-card-title">
+                        <h3>{{ gallery.title }}</h3>
+                    </div>
+
+                </a>
+
+                <!-- Hidden Images For Slider -->
+                {% for image in gallery.gallery_images.all %}
+
+                    <a href="{{ image.image_path.url }}"
+                       data-fancybox="gallery-{{ gallery.id }}"
+                       data-caption="{{ gallery.title }}"
+                       style="display:none;">
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+            {% empty %}
+
+            <div class="gallery-empty">
+                <h3>No Gallery Images Found.</h3>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+{% include 'includes/footer.html' %}
+
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+<script>
+Fancybox.bind("[data-fancybox]", {
+    animated: true,
+    dragToClose: true,
+    Image: { zoom: true },
+    Toolbar: {
+        display: {
+            left: [],
+            middle: ["zoomIn", "zoomOut", "toggle1to1", "rotateCCW", "rotateCW"],
+            right: ["slideshow", "thumbs", "fullscreen", "close"]
+        }
+    },
+    Thumbs: { autoStart: true },
+    Carousel: { infinite: true }
+});
+</script>
+
+{% endblock %}

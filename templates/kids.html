@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Kids Collection | Selection Footwear
+{% endblock %}
+
+{% block content %}
+
+{% include "includes/popup.html" %}
+
+<link rel="stylesheet" href="{% static 'css/kids.css' %}">
+
+<section class="collection-page">
+
+    <!-- Hero Banner -->
+    <section class="collection-banner">
+
+        <img src="{% static 'images/kids-collection-banner.png' %}"
+             alt="Kids Collection">
+
+        <div class="collection-content">
+
+            <h1>
+                Kids' Collection
+            </h1>
+
+            <p>
+                Fun &amp; comfortable footwear for little feet.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Products -->
+
+    <div class="shop-content">
+
+        {% if products %}
+
+        <div class="products">
+
+            {% for product in products %}
+
+            <div class="product-card">
+
+                {% with image=product.primary_image %}
+
+                    {% if image %}
+
+                        <img src="{{ image.image.url }}"
+                             alt="{{ product.name }}">
+
+                    {% else %}
+
+                        <img src="{% static 'images/categories/flats.png' %}"
+                             alt="{{ product.name }}">
+
+                    {% endif %}
+
+                {% endwith %}
+
+                <!-- Product Details -->
+
+                <div class="product-info">
+
+                    <h3 class="product-title">
+                        {{ product.name }}
+                    </h3>
+
+                    <a href="https://wa.me/919898881849?text=Hi,%20I%20want%20to%20know%20the%20price%20of%20{{ product.name }}"
+                       target="_blank"
+                       class="dm-btn">
+
+                        Contact for Price
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="collection-empty-notice">
+
+            <h3>
+                No Products Available
+            </h3>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% include "includes/footer.html" %}
+
+{% endblock %}

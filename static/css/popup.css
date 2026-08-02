@@ -1,0 +1,497 @@
+/* =====================================================
+   GOOGLE FONT
+===================================================== */
+:root {
+   
+    --font-primary: 'BeVietnamPro-Regular';
+}
+/* =====================================================
+   OVERLAY
+===================================================== */
+#visitorPopup{
+    display: none;
+}
+.visitor-popup-overlay{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    z-index:999999;
+    padding:15px;
+}
+
+/* =====================================================
+   POPUP CARD
+===================================================== */
+
+.visitor-popup{
+    width:580px;
+    max-width:95%;
+    display:flex;
+    background:#F8F3EC;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.28);
+    animation:popupShow .35s ease;
+    transition:.35s;
+}
+
+.visitor-popup:hover{
+    box-shadow:0 30px 80px rgba(0,0,0,.32);
+}
+
+/* =====================================================
+   LEFT
+===================================================== */
+
+.popup-left{
+    width:32%;
+    
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.popup-logo{
+    width:150px;
+    max-width:100%;
+    object-fit:contain;
+    transition:.35s;
+}
+
+.popup-logo:hover{
+    transform:scale(1.05);
+}
+
+/* =====================================================
+   RIGHT
+===================================================== */
+
+.popup-right{
+    width:68%;
+    padding:24px;
+    font-family:var(--font-primary);
+}
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.popup-heading{
+    margin-bottom:20px;
+}
+
+.popup-heading h2{
+    font-family:var(--font-primary);
+    font-size:24px;
+    color:#2D1B13;
+    margin-bottom:6px;
+    line-height:1.3;
+}
+
+.popup-heading span{
+    color:#B8894F;
+}
+
+.popup-heading p{
+    font-size:13px;
+    color:#777;
+    line-height:1.6;
+}
+
+/* =====================================================
+   FORM
+===================================================== */
+
+#visitorForm{
+    width:100%;
+}
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-box{
+    position:relative;
+    margin-bottom:15px;
+}
+
+.input-box i{
+    position:absolute;
+    left:16px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#B8894F;
+    font-size:15px;
+}
+
+.input-box input{
+    width:100%;
+    height:46px;
+    padding:0 15px 0 46px;
+    border:1px solid #D8C8BA;
+    border-radius:10px;
+    background:#fff;
+    font-size:14px;
+    color:#2D1B13;
+    outline:none;
+    transition:.3s;
+}
+
+.input-box input::placeholder{
+    color:#9B8F83;
+}
+
+.input-box input:hover{
+    border-color:#B8894F;
+}
+
+.input-box input:focus{
+    border-color:#B8894F;
+    box-shadow:0 0 0 3px rgba(184,137,79,.15);
+}
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+#submitBtn{
+    width:100%;
+    height:46px;
+    border:none;
+    border-radius:10px;
+    background:#2D1B13;
+    color:#fff;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#submitBtn:hover{
+    background:#B8894F;
+    transform:translateY(-2px);
+    box-shadow:0 12px 28px rgba(184,137,79,.25);
+}
+
+#submitBtn:active{
+    transform:scale(.98);
+}
+
+#submitBtn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+}
+
+/* =====================================================
+   NOTE
+===================================================== */
+
+
+.popup-note{
+    margin-top:12px;
+    text-align:center;
+    font-size:12px;
+    color:#888;
+}
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+@keyframes popupShow{
+
+    from{
+        opacity:0;
+        transform:translateY(25px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+
+}
+
+/* =====================================================
+   BODY LOCK
+===================================================== */
+
+body.popup-open{
+    overflow:hidden;
+}/* ===========================================
+   LARGE LAPTOP
+=========================================== */
+@media (max-width:1200px){
+
+    .visitor-popup{
+        width:560px;
+    }
+
+    .popup-left{
+        width:34%;
+        padding:20px;
+    }
+
+    .popup-logo{
+        width:130px;
+    }
+
+    .popup-right{
+        width:66%;
+        padding:22px;
+    }
+
+    .popup-heading h2{
+        font-size:22px;
+    }
+
+}
+
+/* ===========================================
+   TABLET
+=========================================== */
+@media (max-width:992px){
+
+    .visitor-popup{
+        width:92%;
+        max-width:520px;
+    }
+
+    .popup-left{
+        width:32%;
+        padding:18px;
+    }
+
+    .popup-logo{
+        width:110px;
+    }
+
+    .popup-right{
+        width:68%;
+        padding:20px;
+    }
+
+    .popup-heading{
+        margin-bottom:16px;
+    }
+
+    .popup-heading h2{
+        font-size:21px;
+    }
+
+    .popup-heading p{
+        font-size:12px;
+    }
+
+    .input-box{
+        margin-bottom:12px;
+    }
+
+    .input-box input{
+        height:44px;
+        font-size:13px;
+    }
+
+    #submitBtn{
+        height:44px;
+        font-size:14px;
+    }
+
+}
+
+/* ===========================================
+   MOBILE
+=========================================== */
+@media (max-width:768px){
+
+    .visitor-popup-overlay{
+        padding:15px;
+        align-items:center;
+    }
+
+    .visitor-popup{
+
+        width:100%;
+        max-width:380px;
+
+        flex-direction:column;
+
+        border-radius:16px;
+
+        max-height:90vh;
+        overflow-y:auto;
+    }
+
+    .popup-left{
+
+        width:100%;
+        height:120px;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        padding:15px;
+    }
+
+    .popup-logo{
+        width:95px;
+    }
+
+    .popup-right{
+
+        width:100%;
+        padding:20px;
+    }
+
+    .popup-heading{
+
+        text-align:center;
+        margin-bottom:18px;
+    }
+
+    .popup-heading h2{
+        font-size:20px;
+    }
+
+    .popup-heading p{
+
+        font-size:12px;
+        line-height:1.5;
+    }
+
+    .input-box{
+
+        margin-bottom:12px;
+    }
+
+    .input-box i{
+
+        left:15px;
+        font-size:14px;
+    }
+
+    .input-box input{
+
+        height:42px;
+        padding-left:42px;
+        font-size:13px;
+    }
+
+    #submitBtn{
+
+        height:42px;
+        font-size:14px;
+    }
+
+    .popup-note{
+
+        font-size:11px;
+        margin-top:10px;
+    }
+
+}
+
+/* ===========================================
+   SMALL MOBILE
+=========================================== */
+@media (max-width:480px){
+
+    .visitor-popup{
+
+        max-width:340px;
+    }
+
+    .popup-left{
+
+        height:100px;
+    }
+
+    .popup-logo{
+
+        width:80px;
+    }
+
+    .popup-right{
+
+        padding:18px;
+    }
+
+    .popup-heading h2{
+
+        font-size:18px;
+    }
+
+    .popup-heading p{
+
+        font-size:11px;
+    }
+
+    .input-box input{
+
+        height:40px;
+        font-size:12px;
+    }
+
+    #submitBtn{
+
+        height:40px;
+        font-size:13px;
+    }
+
+}
+
+/* ===========================================
+   EXTRA SMALL MOBILE
+=========================================== */
+@media (max-width:360px){
+
+    .visitor-popup{
+
+        max-width:300px;
+    }
+
+    .popup-left{
+
+        height:90px;
+    }
+
+    .popup-logo{
+
+        width:70px;
+    }
+
+    .popup-right{
+
+        padding:15px;
+    }
+
+    .popup-heading h2{
+
+        font-size:17px;
+    }
+
+    .popup-heading p{
+
+        font-size:10px;
+    }
+
+    .input-box input{
+
+        height:38px;
+        font-size:12px;
+    }
+
+    #submitBtn{
+
+        height:38px;
+        font-size:12px;
+    }
+
+}

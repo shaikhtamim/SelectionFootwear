@@ -1,0 +1,92 @@
+{% load static %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<header class="page-header">
+    <div class="panel wrapper">
+        <div class="panel header">
+            <div class="top-header-contact">
+                <div class="top-header-contact-info">
+                    <ul>
+                        <li><a class="phone-link" href="tel:+919898881849">+91 9898881849</a></li>
+                        <li><a class="email-link" href="mailto:selectionfootwer@gmail.com">selectionfootwer@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="social icons">
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/profile.php?id=61573150241929" target="_blank" rel="noopener" aria-label="Facebook">
+                                <img src="{% static 'images/facebook-logo.png.' %}" alt="Facebook" title="Facebook" loading="lazy" width="20" height="20">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/selectionfootwear.in" target="_blank" rel="noopener" aria-label="Instagram">
+                                <img src="{% static 'images/instagram-logo.png' %}" alt="Instagram" title="Instagram" loading="lazy" width="20" height="20">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+919898881849" target="_blank" rel="noopener" aria-label="phone">
+                                <img src="{% static 'images/phone-call.png' %}" alt="phone" title="phone" loading="lazy" width="20" height="20">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://wa.me/9898881849" target="_blank" rel="noopener" aria-label="whatsapp">
+                                <img src="{% static 'images/whatsapp-logo.png' %}" alt="WhatsApp" title="whatsapp" loading="lazy" width="20" height="20">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a class="action skip contentarea" href="#contentarea">
+                <span>Skip to Content</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="header content">
+        <span data-action="toggle-nav" class="action nav-toggle" role="button" tabindex="0" aria-label="Toggle Nav">
+            <span>Toggle Nav</span>
+        </span>
+
+        <a class="logo" href="{% url 'home' %}" title="Selection Footwear" aria-label="store logo">
+            <img src="{% static 'images/new-logo.png' %}"
+                 alt="Selection Footwear"
+                 width="300"
+                 loading="lazy">
+        </a>
+
+        <div class="sections nav-sections">
+            <div class="section-items nav-sections-items">
+                <div class="section-item-title nav-sections-item-title active" data-role="collapsible">
+                    <a class="nav-sections-item-switch" href="#store-menu">Menu</a>
+                </div>
+                <div class="section-item-content nav-sections-item-content" id="store-menu" data-role="content">
+                    <nav class="navigation" data-action="navigation">
+                        <ul>
+                            <li class="level0 nav-1 first level-top {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                                <a href="{% url 'home' %}" class="level-top"><span>Home</span></a>
+                            </li>
+                            <li class="level0 nav-2 level-top {% if request.resolver_match.url_name == 'women' %}active{% endif %}">
+                                <a href="{% url 'women' %}" class="level-top"><span>Women</span></a>
+                            </li>
+                            <li class="level0 nav-3 level-top {% if request.resolver_match.url_name == 'kids' %}active{% endif %}">
+                                <a href="{% url 'kids' %}" class="level-top"><span>Kids</span></a>
+                            </li>
+                            <li class="level0 nav-4 level-top {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">
+                                <a href="{% url 'gallery' %}" class="level-top"><span>Gallery</span></a>
+                            </li>
+                            <li class="level0 nav-5 level-top {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                                <a href="{% url 'about' %}" class="level-top"><span>About Us</span></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <ul class="header links">
+            <li class="become-a-dealer">
+                <a href="{% url 'contact' %}" class="registration-link">Contact Us</a>
+            </li>
+        </ul>
+    </div>
+</header>
+<div class="nav-overlay" data-action="close-nav" hidden></div>
