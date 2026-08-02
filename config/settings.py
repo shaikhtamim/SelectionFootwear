@@ -23,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-k!b^)y013pxxu*3c#co$@b_)9egqujhy3k@gd+s6roa21v-5la'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "selectionfootwear.onrender.com",
+]
 
 # Application definition
 INSTALLED_APPS = [
