@@ -4,15 +4,22 @@
     <div class="shop-sec-grid">
 
         <!-- Women -->
-        <div class="shop-sec-item">
-            <a href="/women/" class="shop-sec-image-link">
-                <img src="{% static 'images/ChatGPT Image Jul 26, 2026, 08_10_28 PM.png' %}" alt="Women Collection" class="shop-sec-img">
-            </a>
-        </div>
+        <a href="{% url 'women' %}" class="shop-sec-image-link">
+            <div class="shop-sec-item">
+                <img src="{% static 'images/ChatGPT Image Jul 26, 2026, 08_10_28 PM.png' %}"
+                     alt="Women Collection"
+                     class="shop-sec-img">
+            </div>
+        </a>
 
         <!-- Kids -->
-      <div class="shop-sec-item"
-     style="background-image: url('{% static "images/ChatGPT Image Jul 26, 2026, 08_10_28_29 PM.png" %}');">
-</div>
+        <a href="{% url 'kids' %}" class="shop-sec-image-link">
+            <div class="shop-sec-item">
+                <img src="{% static 'images/ChatGPT Image Jul 26, 2026, 08_10_28_29 PM.png' %}"
+                     alt="Kids Collection"
+                     class="shop-sec-img">
+            </div>
+        </a>
+
     </div>
 </section>
