@@ -103,28 +103,25 @@ body{
     font-size:15px;
     outline:none;
 }
+
 /* ===========================
-   PRODUCT GRID - FIXED
+   PRODUCT GRID
 =========================== */
 
 .shop-content{
-    width:95%;
-    max-width:1400px;
+    width:90%;
     margin:auto;
     margin-bottom:80px;
-    padding:0 15px;
-    box-sizing:border-box;
 }
 
 .products{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:28px;
-    overflow:hidden;
+    gap:35px;
 }
 
 /* ===========================
-   PRODUCT CARD - FIXED
+   PRODUCT CARD
 =========================== */
 
 .product-card{
@@ -138,8 +135,11 @@ body{
     display:flex;
     flex-direction:column;
     height:100%;
-    width:100%;
-    box-sizing:border-box;
+}
+
+.product-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
 }
 
 .product-card img{
@@ -150,149 +150,10 @@ body{
     background:#E4DAD0;
     padding:18px;
     transition:.35s;
-    max-width:100%;
-    display:block;
 }
 
-/* ===========================
-   RESPONSIVE - UPDATED
-=========================== */
-
-/* Large Laptop */
-@media (max-width:1200px){
-    .products{
-        grid-template-columns:repeat(3,1fr);
-        gap:24px;
-    }
-}
-
-/* Tablet */
-@media (max-width:900px){
-    .collection-content h1{
-        font-size:40px;
-    }
-
-    .collection-content p{
-        font-size:16px;
-    }
-
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:20px;
-    }
-
-    .collection-top{
-        flex-direction:column;
-        align-items:flex-start;
-        width:100%;
-    }
-
-    .product-info{
-        padding:14px;
-    }
-
-    .product-title{
-        font-size:16px;
-    }
-
-    .dm-btn{
-        font-size:13px;
-        padding:9px 18px;
-    }
-}
-
-/* Mobile */
-@media (max-width:640px){
-    .collection-banner{
-        height:200px;
-    }
-
-    .collection-content{
-        left:15px;
-        max-width:calc(100% - 30px);
-    }
-
-    .collection-content h1{
-        font-size:28px;
-        margin-bottom:10px;
-    }
-
-    .collection-content p{
-        font-size:14px;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-        gap:16px;
-        padding:0;
-    }
-
-    .product-card{
-        max-width:100%;
-    }
-
-    .product-card img{
-        height:240px;
-        padding:12px;
-    }
-
-    .category-tabs{
-        gap:8px;
-        width:100%;
-    }
-
-    .category-tabs a{
-        padding:8px 12px;
-        font-size:12px;
-    }
-
-    .product-info{
-        padding:12px;
-    }
-
-    .product-title{
-        font-size:14px;
-        margin-bottom:8px;
-    }
-
-    .dm-btn{
-        width:auto;
-        padding:8px 16px;
-        font-size:12px;
-    }
-}
-
-/* Small Mobile (Extra Small) */
-@media (max-width:380px){
-    .shop-content{
-        width:100%;
-        padding:0 10px;
-    }
-
-    .products{
-        gap:12px;
-    }
-
-    .collection-content h1{
-        font-size:24px;
-    }
-
-    .collection-content p{
-        font-size:13px;
-    }
-
-    .product-card img{
-        height:200px;
-    }
-
-    .product-title{
-        font-size:13px;
-    }
-
-    .dm-btn{
-        font-size:11px;
-        padding:6px 12px;
-    }
+.product-card:hover img{
+    transform:scale(1.05);
 }
 
 /* ===========================
@@ -392,137 +253,206 @@ body{
 .collection-empty-notice p{
     color:#666;
 }
-
 /* ===========================
-   RESPONSIVE
+   RESPONSIVE (FULLY FIXED FOR MOBILE)
 =========================== */
 
+/* Global Mobile Overflow Guard */
+html, body {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+}
+
 /* Large Laptop */
-
-@media (max-width:1200px){
-
-    .products{
-        grid-template-columns:repeat(4,1fr);
-        gap:28px;
+@media (max-width: 1200px) {
+    .products {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 28px;
     }
-
 }
 
 /* Tablet */
-
-@media (max-width:900px){
-
-    .collection-content h1{
-        font-size:40px;
+@media (max-width: 900px) {
+    .collection-top {
+        width: 92%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
     }
 
-    .collection-content p{
-        font-size:16px;
+    .collection-content h1 {
+        font-size: 40px;
     }
 
-    .products{
-        grid-template-columns:repeat(2,1fr);
-        gap:25px;
+    .collection-content p {
+        font-size: 16px;
     }
 
-    .collection-top{
-        flex-direction:column;
-        align-items:flex-start;
+    .shop-content {
+        width: 92%;
     }
 
-    .product-info{
-        padding:16px;
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
     }
 
-    .product-title{
-        font-size:18px;
+    .product-info {
+        padding: 16px;
     }
 
-    .dm-btn{
-        font-size:13px;
-        padding:9px 18px;
+    .product-title {
+        font-size: 18px;
     }
 
+    .dm-btn {
+        font-size: 13px;
+        padding: 9px 18px;
+    }
 }
 
-/* Mobile */
+/* Mobile (Tablet & Large Phones) */
+@media (max-width: 600px) {
 
-@media (max-width:600px){
-
-    .collection-banner{
-        height:220px;
+    /* 1. Prevent Right-Side Cut-Off on Containers */
+    .collection-banner,
+    .collection-top,
+    .shop-content {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
-    .collection-content{
-        left:25px;
+    /* 2. Banner Fixes */
+    .collection-banner {
+        height: 200px;
+        margin-bottom: 25px;
     }
 
-    .collection-content h1{
-        font-size:30px;
+    .collection-content {
+        left: 15px;
+        right: 15px;
+        max-width: 100%;
+        transform: translateY(-50%);
     }
 
-    .collection-content p{
-        font-size:15px;
+    .collection-content h1 {
+        font-size: 26px;
+        margin-bottom: 8px;
     }
 
-    .products{
-        grid-template-columns:1fr;
-        gap:20px;
+    .collection-content p {
+        font-size: 14px;
+        line-height: 1.4;
     }
 
-    .product-card img{
-        height:300px;
+    /* 3. Category Tabs Fix (Buttons won't push screen outside) */
+    .category-tabs {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        box-sizing: border-box;
     }
 
-    .category-tabs{
-        gap:10px;
+    .category-tabs a {
+        padding: 8px 14px;
+        font-size: 13px;
+        box-sizing: border-box;
+        text-align: center;
     }
 
-    .category-tabs a{
-        padding:10px 16px;
-        font-size:13px;
+    .sort-box {
+        width: 100%;
     }
 
-    .product-info{
-        padding:16px;
+    .sort-box select {
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .product-title{
-        font-size:18px;
-        margin-bottom:12px;
+    /* 4. Product Grid Fix (Compact 2-Column Grid on Mobile) */
+    .products {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    .dm-btn{
-        width:auto;
-        padding:10px 18px;
-        font-size:13px;
+    .product-card {
+        width: 100%;
+        box-sizing: border-box;
     }
 
+    .product-card img {
+        height: 150px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .product-info {
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .product-title {
+        font-size: 14px;
+        margin-bottom: 10px;
+        line-height: 1.3;
+    }
+
+    .dm-btn {
+        width: 100%;
+        padding: 8px 10px;
+        font-size: 12px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .pagination {
+        margin: 40px 0;
+        gap: 8px;
+    }
+
+    .pagination a {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
 }
 
-/* Small Mobile */
+/* Small Mobile Screens (Under 380px) */
+@media (max-width: 380px) {
 
-@media (max-width:380px){
-
-    .collection-content h1{
-        font-size:26px;
+    .products {
+        grid-template-columns: 1fr !important; /* Single column for very small phones */
+        gap: 15px !important;
     }
 
-    .collection-content p{
-        font-size:14px;
+    .product-card img {
+        height: 220px;
     }
 
-    .product-card img{
-        height:250px;
+    .collection-content h1 {
+        font-size: 22px;
     }
 
-    .product-title{
-        font-size:16px;
+    .collection-content p {
+        font-size: 13px;
     }
 
-    .dm-btn{
-        font-size:12px;
-        padding:8px 16px;
+    .category-tabs a {
+        font-size: 12px;
+        padding: 6px 12px;
     }
 
+    .dm-btn {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
 }
