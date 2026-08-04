@@ -1,348 +1,477 @@
-/* ===========================
-   SHOP BY CATEGORY
-=========================== */
+/* ====================================
+   SHOP BY CATEGORY - ALIGNMENT FIX BUILD
+   Root cause of "flats/heels upar" bug:
+   transform: scale() resizes an element
+   VISUALLY but its LAYOUT BOX stays the
+   original un-scaled size. Since heels
+   (104px), flats (101px), sandals (111px)
+   etc. all have different original crop
+   heights, each icon reserved a different
+   amount of space -> visual centers landed
+   at different points -> row looked "out
+   of sequence".
+
+   FIX: the sprite (with its own crop size
+   + scale) now lives on a ::before
+   pseudo-element INSIDE a fixed-height
+   slot (.sf-category-icon). The slot's
+   height never changes per icon, and
+   flex centering + scale's default
+   center-origin guarantees every icon's
+   visual center lands on the exact same
+   point, no matter its crop size.
+==================================== */
 
 :root {
-    --font-primary: 'BeVietnamPro-Regular';
+    --font-primary: 'BeVietnamPro-Regular', sans-serif;
+    --bg-color: #faf6f0;
+    --text-dark: #3b2418;
+    --text-light: #5b3926;
+    --accent-gold: #c79a42;
 }
 
-.sf-category-section{
-    background:#faf6f0;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.sf-category-container{
-    max-width:1250px;
-    margin:auto;
-    padding:0 20px;
-    margin-bottom: 20px
+body {
+    font-family: var(--font-primary);
+    background-color: #ffffff;
 }
 
-/* ===========================
+/* ====================================
+   SECTION CONTAINER
+==================================== */
+
+.sf-category-section {
+    background-color: var(--bg-color);
+    padding: 28px 0;
+    width: 100%;
+}
+
+.sf-category-container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ====================================
    HEADING
-=========================== */
+==================================== */
 
-.sf-category-heading{
-    position:relative;
-    text-align:center;
-    font-size:35px;
-    font-weight:600;
-    color:#3b2418;
-    margin-bottom:70px;
-    font-family: var(--font-primary);;
-    padding: 20px;
+.sf-category-heading {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 34px;
+    position: relative;
+    font-family: var(--font-primary);
+}
+
+.sf-category-heading::after {
+    content: '';
+    display: block;
+    width: 55px;
+    height: 3px;
+    background-color: var(--accent-gold);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* ====================================
+   GRID LAYOUT
+==================================== */
+
+.sf-category-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    align-items: start;
+    justify-items: center;
+}
+
+/* ====================================
+   CATEGORY CARD
+==================================== */
+
+.sf-category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.sf-category-card:hover {
+    transform: translateY(-8px);
+}
+
+.sf-category-card span {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-light);
+    margin-top: 12px;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* ====================================
+   ICON SLOT
+   This box is the SAME fixed size for
+   every single icon. It never grows or
+   shrinks based on the sprite crop —
+   that's what guarantees every icon's
+   visual center sits on the same line.
+   Do NOT put per-icon width/height here.
+==================================== */
+
+.sf-category-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    height: 82px;
+}
+
+/* ====================================
+   SPRITE (the actual image crop)
+   Lives on ::before so its own box size
+   (which varies per icon) never affects
+   the slot above. Scale is applied here,
+   around the element's own center — and
+   since the slot always centers this
+   pseudo-element, the visual center is
+   identical across every icon.
+==================================== */
+
+.sf-category-icon::before {
+    content: '';
+    display: block;
+    background-image: url('/static/images/category-icons.png');
+    background-repeat: no-repeat;
+    background-size: 1200px auto;
+    flex-shrink: 0;
+}
+
+.sf-category-icon.icon-heels::before {
+    background-position: -125px -200px;
+    width: 111px;
+    height: 104px;
+    transform: scale(0.68);
+}
+
+.sf-category-icon.icon-flats::before {
+    background-position: -343px -201px;
+    width: 154px;
+    height: 101px;
+    transform: scale(0.68);
+}
+
+.sf-category-icon.icon-sandals::before {
+    background-position: -610px -192px;
+    width: 137px;
+    height: 111px;
+    transform: scale(0.66);
+}
+
+.sf-category-icon.icon-sneakers::before {
+    background-position: -567px -420px;
+    width: 156px;
+    height: 110px;
+    transform: scale(0.66);
+}
+
+.sf-category-icon.icon-boots::before {
+    background-position: -362px -432px;
+    width: 125px;
+    height: 108px;
+    transform: scale(0.68);
+}
+
+.sf-category-icon.icon-party::before {
+    background-position: -832px -421px;
+    width: 116px;
+    height: 107px;
+    transform: scale(0.66);
+}
+
+/* =====================================
+   RESPONSIVE BREAKPOINTS
+   Every tier only changes: grid layout,
+   heading size, the slot's width/height,
+   and the sprite's scale. The slot stays
+   uniform across all 6 icons at every
+   single tier, so alignment can never
+   break again, at any screen size.
+===================================== */
+
+/* LAPTOP: up to 1200px */
+@media (max-width: 1200px) {
+    .sf-category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px 16px;
+    }
+
+    .sf-category-heading {
+        font-size: 28px;
+        margin-bottom: 32px;
+    }
+
+    .sf-category-icon {
+        width: 96px;
+        height: 74px;
+    }
+
+    .sf-category-icon.icon-heels::before,
+    .sf-category-icon.icon-flats::before,
+    .sf-category-icon.icon-boots::before {
+        transform: scale(0.62);
+    }
+
+    .sf-category-icon.icon-sandals::before,
+    .sf-category-icon.icon-sneakers::before,
+    .sf-category-icon.icon-party::before {
+        transform: scale(0.60);
+    }
+}
+
+/* TABLET: up to 1024px */
+@media (max-width: 1024px) {
+    .sf-category-section { padding: 26px 0; }
+    .sf-category-container { padding: 0 15px; }
+
+    .sf-category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 12px;
+    }
+
+    .sf-category-heading {
+        font-size: 25px;
+        margin-bottom: 28px;
+    }
+
+    .sf-category-icon {
+        width: 90px;
+        height: 68px;
+    }
+
+    .sf-category-icon.icon-heels::before,
+    .sf-category-icon.icon-flats::before,
+    .sf-category-icon.icon-boots::before {
+        transform: scale(0.58);
+    }
+
+    .sf-category-icon.icon-sandals::before,
+    .sf-category-icon.icon-sneakers::before,
+    .sf-category-icon.icon-party::before {
+        transform: scale(0.56);
+    }
+
+    .sf-category-card span {
+        font-size: 11px;
+        margin-top: 10px;
+    }
+}
+
+/* TABLET PORTRAIT: up to 768px */
+@media (max-width: 768px) {
+    .sf-category-section { padding: 22px 0; }
+    .sf-category-container { padding: 0 12px; }
+
+    .sf-category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px 8px;
+    }
+
+    .sf-category-heading {
+        font-size: 23px;
+        margin-bottom: 26px;
+    }
+
+    .sf-category-icon {
+        width: 86px;
+        height: 64px;
+    }
+
+    .sf-category-icon.icon-heels::before,
+    .sf-category-icon.icon-flats::before,
+    .sf-category-icon.icon-boots::before {
+        transform: scale(0.56);
+    }
+
+    .sf-category-icon.icon-sandals::before,
+    .sf-category-icon.icon-sneakers::before,
+    .sf-category-icon.icon-party::before {
+        transform: scale(0.54);
+    }
+
+    .sf-category-card span {
+        font-size: 10px;
+        margin-top: 8px;
+    }
+}
+
+/* MOBILE: up to 600px */
+@media (max-width: 600px) {
+    .sf-category-section { padding: 18px 0; }
+    .sf-category-container { padding: 0 10px; }
+
+    .sf-category-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px 6px;
+    }
+
+    .sf-category-heading {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .sf-category-heading::after {
+        width: 36px;
+        margin-top: 10px;
+    }
+
+    .sf-category-icon {
+        width: 78px;
+        height: 58px;
+    }
+
+    .sf-category-icon.icon-heels::before,
+    .sf-category-icon.icon-flats::before,
+    .sf-category-icon.icon-boots::before {
+        transform: scale(0.50);
+    }
+
+    .sf-category-icon.icon-sandals::before,
+    .sf-category-icon.icon-sneakers::before,
+    .sf-category-icon.icon-party::before {
+        transform: scale(0.48);
+    }
+
+    .sf-category-card span {
+        font-size: 9px;
+        margin-top: 6px;
+    }
+}
+
+/* ALL PHONES: 360px - 480px (unified, compact) */
+@media (max-width: 480px) {
+    .sf-category-section { padding: 10px 0; }
+    .sf-category-container { padding: 0 8px; }
+
+    .sf-category-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px 6px;
+        row-gap: 12px;
+    }
+
+    .sf-category-heading {
+        font-size: 17px;
+        margin-bottom: 12px;
+        padding: 0 5px;
+    }
+
+    .sf-category-heading::after {
+        width: 28px;
+        height: 2px;
+        margin-top: 6px;
+    }
+
+    .sf-category-icon {
+        width: 64px;
+        height: 50px;
+    }
+
+    .sf-category-icon.icon-heels::before,
+    .sf-category-icon.icon-flats::before,
+    .sf-category-icon.icon-boots::before {
+        transform: scale(0.44);
+    }
+
+    .sf-category-icon.icon-sandals::before,
+    .sf-category-icon.icon-sneakers::before,
+    .sf-category-icon.icon-party::before {
+        transform: scale(0.42);
+    }
+
+    .sf-category-card {
+        transform: none;
+    }
+
+    .sf-category-card:hover {
+        transform: none;
+    }
+
+    .sf-category-card span {
+        font-size: 7.5px;
+        margin-top: 3px;
+        line-height: 1.2;
+        max-width: 100%;
+    }
+}
+
+/* SMALL PHONES: below 360px */
+@media (max-width: 360px) {
+    .sf-category-section { padding: 8px 0; }
+    .sf-category-container { padding: 0 4px; }
+
+    .sf-category-grid {
+        gap: 3px 0;
+        row-gap: 5px;
+    }
+
+    .sf-category-heading {
+        font-size: 15px;
         margin-bottom: 10px;
+    }
+
+    .sf-category-heading::after {
+        width: 24px;
+    }
+
+    .sf-category-icon {
+        width: 58px;
+        height: 45px;
+    }
+
+    .sf-category-icon.icon-heels::before,
+    .sf-category-icon.icon-flats::before,
+    .sf-category-icon.icon-boots::before {
+        transform: scale(0.40);
+    }
+
+    .sf-category-icon.icon-sandals::before,
+    .sf-category-icon.icon-sneakers::before,
+    .sf-category-icon.icon-party::before {
+        transform: scale(0.38);
+    }
+
+    .sf-category-card span {
+        font-size: 7px;
+        margin-top: 3px;
+    }
 }
 
-.sf-category-heading::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    bottom:8px;
-    transform:translateX(-50%);
-    width:55px;
-    height:3px;
-    border-radius:30px;
-    background:#c79a42;
+/* ====================================
+   ACCESSIBILITY & TOUCH
+==================================== */
+
+@media (hover: none) {
+    .sf-category-card:hover {
+        transform: none;
+    }
 }
 
-/* ===========================
-   GRID
-=========================== */
-
-.sf-category-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:18px;
-    justify-items:center;
-    align-items:start;
-    padding: 10px;
-
-}
-
-/* ===========================
-   CARD
-=========================== */
-
-.sf-category-card{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.sf-category-card:hover{
-    transform:translateY(-6px);
-}
-
-.sf-category-card span{
-    margin-top:8px;
-    font-size:12px;
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:.5px;
-    color:#5b3926;
-}
-
-/* ===========================
-   ICON
-=========================== */
-
-.sf-category-icon{
-    width:112px;
-    height:90px;
-    background:url("/static/images/category-icons.png") no-repeat;
-    background-size:1200px auto;
-    overflow:hidden;
-}
-
-/* ===========================
-   SPRITES
-=========================== */
-
-.icon-heels{
-    background-position:-125px -200px;
-    width:111px;
-    height:104px;
-    transform:scale(.75);
-    margin-top:8px;
-}
-
-.icon-flats{
-    background-position:-343px -201px;
-    width:154px;
-    height:101px;
-    transform:scale(.75);
-    margin-top:9px;
-}
-
-.icon-sandals{
-    background-position:-610px -192px;
-    width:137px;
-    height:111px;
-    transform:scale(.72);
-}
-
-.icon-sneakers{
-    background-position:-567px -420px;
-    width:156px;
-    height:110px;
-    transform:scale(.72);
-}
-
-.icon-boots{
-    background-position:-362px -432px;
-    width:125px;
-    height:108px;
-    transform:scale(.75);
-}
-
-.icon-school{
-    background-position:-568px -420px;
-    width:154px;
-    height:107px;
-    transform:scale(.72);
-}
-
-.icon-party{
-    background-position:-832px -421px;
-    width:116px;
-    height:107px;
-    transform:scale(.72);
-}
-
-.icon-sports{
-    background-position:-1033px -423px;
-    width:146px;
-    height:107px;
-    transform:scale(.72);
-}
-
-/* =====================================
-   RESPONSIVE
-===================================== */
-/* =====================================
-   RESPONSIVE
-===================================== */
-
-/* Laptop */
-@media (max-width:1200px){
-
-    .sf-category-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:20px 15px;
+@media print {
+    .sf-category-section {
+        background: white;
     }
-
-    .sf-category-heading{
-        font-size:38px;
-    }
-
-}
-
-/* Tablet */
-@media (max-width:992px){
-
-    .sf-category-section{
-        padding:55px 0;
-    }
-
-    .sf-category-container{
-        padding:0 15px;
-        margin-top: -64px;
-        margin-bottom: -49px;
-    }
-
-    .sf-category-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:18px 10px;
-    }
-
-    .sf-category-card{
-        transform:none;
-    }
-
-    .sf-category-icon{
-        transform:scale(.72);
-    }
-
-    .sf-category-heading{
-        font-size:32px;
-        
-    }
-
-}
-
-/* Small Tablet */
-@media (max-width:768px){
-
-    .sf-category-section{
-        padding:45px 0;
-    }
-
-    .sf-category-container{
-        padding:0 12px;
-    }
-
-    .sf-category-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:12px 6px;
-    }
-
-    .sf-category-card{
-        transform:none;
-    }
-
-    .sf-category-icon{
-        transform:scale(.66);
-    }
-
-    .sf-category-card span{
-        font-size:11px;
-        margin-top:3px;
-    }
-
-    .sf-category-heading{
-        font-size:28px;
-        margin-bottom:45px;
-    }
-
-}
-
-/* Mobile */
-@media (max-width:576px){
-
-    .sf-category-section{
-        padding:35px 0;
-    }
-
-    .sf-category-container{
-        padding:0 8px;
-        overflow:hidden;
-    }
-
-    .sf-category-grid{
-        width:100%;
-        grid-template-columns:repeat(3,1fr);
-        justify-items:center;
-        align-items:start;
-        gap:8px 2px;
-        margin:0;
-        padding:0;
-    }
-
-    .sf-category-card{
-        width:100%;
-        transform:none;
-    }
-
-    .sf-category-icon{
-        transform:scale(.60);
-        margin:0 auto;
-    }
-
-    .sf-category-card span{
-        margin-top:2px;
-        font-size:10px;
-    }
-
-    .sf-category-heading{
-        font-size:24px;
-        margin-bottom:35px;
-    }
-
-    .sf-category-heading::after{
-        width:38px;
-        height:2px;
-    }
-
-}
-
-/* Small Mobile */
-@media (max-width:420px){
-
-    .sf-category-container{
-        padding:0 5px;
-        overflow:hidden;
-        margin-top: -47px;
-        margin-bottom: -20px;
-    }
-
-    .sf-category-grid{
-        width:100%;
-        grid-template-columns:repeat(3,1fr);
-        justify-items:center;
-        align-items:start;
-        gap:4px 0;
-        margin:0;
-        padding:0;
-        margin-top: -35px;
-    }
-
-    .sf-category-card{
-        width:100%;
-        transform:none;
-        position: relative;
-        left: -24px;
-    }
-
-    .sf-category-icon{
-        transform:scale(.54);
-        margin:0 auto;
-    }
-
-    .sf-category-card span{
-        font-size:9px;
-        margin-top:0;
-    }
-
-    .sf-category-heading{
-        font-size:22px;
-        margin-bottom:32px;
-    }
-
-    .sf-category-heading::after{
-        width:34px;
-    }
-
 }
