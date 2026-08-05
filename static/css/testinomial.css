@@ -6,8 +6,9 @@
     --rv-accent-gold: #C59B27;
     --rv-arrow-bg: #2B221E;
     --rv-quote-color: #E8DCCF;
-    --font-primary:'BeVietnamPro-Regular';
+    --font-primary: 'BeVietnamPro-Regular';
 }
+
 
 .review-section {
     width: 100%;
@@ -18,9 +19,11 @@
     font-family: var(--font-primary);
 }
 
+
+/* Heading */
+
 .review-subtitle {
     font-size: 13px;
-    font-family: var(--font-primary);;
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #A38C75;
@@ -49,15 +52,18 @@
     content: '';
     width: 50px;
     height: 1px;
-    background-color: #D8CCC0;
+    background: #D8CCC0;
 }
 
 .review-divider-diamond {
     width: 6px;
     height: 6px;
-    background-color: #B59574;
+    background: #B59574;
     transform: rotate(45deg);
 }
+
+
+/* Slider */
 
 .review-slider-wrapper {
     position: relative;
@@ -70,8 +76,8 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: var(--rv-arrow-bg);
-    color: #FFFFFF;
+    background: var(--rv-arrow-bg);
+    color: #fff;
     border: none;
     cursor: pointer;
     display: flex;
@@ -79,26 +85,24 @@
     justify-content: center;
     font-size: 16px;
     z-index: 10;
-    transition: all 0.3s ease;
+    transition: .3s;
     flex-shrink: 0;
 }
 
 .review-nav-btn:hover {
-    background-color: #4A3C35;
+    background: #4A3C35;
     transform: scale(1.05);
 }
 
 .review-container {
     width: 100%;
     min-width: 0;
-    padding: 10px 0 0;
+    padding-top: 10px;
 }
 
-/* ===================================================
-   OWL CAROUSEL NATIVE LAYOUT & EQUAL HEIGHT FIX
-=================================================== */
 
-/* Allow Owl stage items to take full stretch height */
+/* Owl Carousel */
+
 .testimonial-slider .owl-stage {
     display: flex;
 }
@@ -108,18 +112,18 @@
     height: auto;
 }
 
-/* Review Card Equal Height Structure */
+
+/* Card */
+
 .review-card {
     background: var(--rv-card-bg);
     border-radius: 16px;
     padding: 35px 28px 30px;
     position: relative;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.03);
-    
+    box-shadow: 0 10px 30px rgba(0,0,0,.03);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
     text-align: center;
     width: 100%;
     box-sizing: border-box;
@@ -137,8 +141,7 @@
 .review-rating-stars {
     color: var(--rv-accent-gold);
     font-size: 15px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
     letter-spacing: 2px;
 }
 
@@ -154,7 +157,9 @@
     justify-content: center;
 }
 
-/* User Avatar & Details */
+
+/* User */
+
 .review-user-info {
     display: flex;
     align-items: center;
@@ -163,7 +168,6 @@
     margin-top: auto;
 }
 
-/* Locked Circle for User Image (Prevents oval shape) */
 .review-user-img {
     width: 52px !important;
     height: 52px !important;
@@ -190,23 +194,25 @@
 .review-user-location {
     font-size: 13px;
     color: var(--rv-text-sub);
-    margin-top: 2px;
-    margin-bottom: 0;
+    margin: 2px 0 0;
 }
+
+
+/* Dots */
 
 .testimonial-slider .owl-nav {
     display: none !important;
-}/* Native Centered Owl Dots */
+}
+
 .testimonial-slider .owl-dots {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
     margin-top: 35px;
-    width: 100%;
 }
 
-.testimonial-slider .owl-dots .owl-dot {
+.testimonial-slider .owl-dot {
     background: none;
     border: none;
     outline: none;
@@ -214,36 +220,41 @@
     cursor: pointer;
 }
 
-/* Inactive Dots - Soft/Muted Light Brown */
-.testimonial-slider .owl-dots .owl-dot span {
+.testimonial-slider .owl-dot span {
     width: 8px;
     height: 8px;
-    margin: 0;
-    background-color: #D5C2B1 !important; 
+    background: #D5C2B1 !important;
     border-radius: 50%;
     display: block;
-    transition: all 0.3s ease;
+    transition: .3s;
 }
 
-/* Active & Hover Dots - Main Dark Brown */
-.testimonial-slider .owl-dots .owl-dot.active span,
-.testimonial-slider .owl-dots .owl-dot:hover span {
-    background-color: #2D1B13 !important; 
-    transform: scale(1.25); 
+.testimonial-slider .owl-dot.active span,
+.testimonial-slider .owl-dot:hover span {
+    background: #2D1B13 !important;
+    transform: scale(1.25);
 }
+
 
 .no-reviews-msg {
     color: var(--rv-text-sub);
     font-size: 15px;
     padding: 20px 0;
 }
-@media (max-width: 992px) {
+
+
+/* Responsive */
+
+@media(max-width:992px){
+
     .review-title {
         font-size: 30px;
     }
 }
 
-@media (max-width: 768px) {
+
+@media(max-width:768px){
+
     .review-slider-wrapper {
         gap: 10px;
     }
@@ -263,7 +274,9 @@
     }
 }
 
-@media (max-width: 480px) {
+
+@media(max-width:480px){
+
     .review-section {
         padding: 41px 14px;
     }

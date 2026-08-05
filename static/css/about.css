@@ -1,372 +1,339 @@
-/* ===================================================
-   ABOUT PAGE
-   Selection Footwear
-=================================================== */
-
 :root {
     --font-primary: 'BeVietnamPro-Regular';
 }
 
-
-.about-page{
-    width:100%;
-    background:#F6EFE7;
-    padding:70px 8%;
+.about-page {
+    width: 100%;
+    background: #F6EFE7;
+    padding: 70px 8%;
 }
 
-/* =============================
-   HEADER
-============================= */
+/* Header */
 
-.about-header{
-    margin-bottom:55px;
+.about-header {
+    margin-bottom: 55px;
 }
 
-.breadcrumb{
-    font-size:13px;
-    color:#9a8572;
-    letter-spacing:1px;
-    text-transform:uppercase;
-    margin-bottom:15px;
+.breadcrumb {
+    font-size: 13px;
+    color: #9a8572;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
 }
 
-.breadcrumb span{
-    margin:0 8px;
-    color:#b8894f;
+.breadcrumb span {
+    margin: 0 8px;
+    color: #b8894f;
 }
 
-.about-header h1{
-    font-family:var(--font-primary);
-    font-size:46px;
-    color:#2d1b13;
-    font-weight:600;
+.about-header h1 {
+    font-family: var(--font-primary);
+    font-size: 46px;
+    color: #2d1b13;
+    font-weight: 600;
 }
 
-/* =============================
-   MAIN SECTION
-============================= */
 
-.about-container{
-    display:grid;
-    /* grid-template-columns:1fr 1fr; */
-    gap:70px;
-    align-items:center;
+/* Main */
+
+.about-container {
+    display: grid;
+    gap: 70px;
+    align-items: center;
 }
 
-/* =============================
-   IMAGE
-============================= */
 
-.about-image{
-    overflow:hidden;
-    border-radius:16px;
+/* Image */
+
+.about-image {
+    overflow: hidden;
+    border-radius: 16px;
 }
 
-.about-image img{
-    width:100%;
-    display:block;
-    border-radius:16px;
-    transition:.45s;
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
+.about-image img {
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+    transition: .45s;
+    box-shadow: 0 20px 40px rgba(0,0,0,.12);
 }
 
-.about-image:hover img{
-    transform:scale(1.04);
+.about-image:hover img {
+    transform: scale(1.04);
 }
 
-/* =============================
-   CONTENT
-============================= */
 
-.section-tag{
-    display:inline-block;
-    color:#b8894f;
-    letter-spacing:3px;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:18px;
+/* Content */
+
+.section-tag {
+    display: inline-block;
+    color: #b8894f;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
 
-.about-content h2{
-    font-family:var(--font-primary);
-    font-size:42px;
-    line-height:1.25;
-    color:#2d1b13;
-    margin-bottom:25px;
+.about-content h2 {
+    font-family: var(--font-primary);
+    font-size: 42px;
+    line-height: 1.25;
+    color: #2d1b13;
+    margin-bottom: 25px;
 }
 
-.about-content p{
-    color:#666;
-    font-size:17px;
-    line-height:31px;
-    margin-bottom:20px;
+.about-content p {
+    color: #666;
+    font-size: 17px;
+    line-height: 31px;
+    margin-bottom: 20px;
 }
 
-.signature{
-    margin-top:35px;
-    font-family:var(--font-primary);
-    font-size:32px;
-    color:#6b4423;
+.signature {
+    margin-top: 35px;
+    font-family: var(--font-primary);
+    font-size: 32px;
+    color: #6b4423;
 }
 
-/* =============================
-   FEATURES
-============================= */
 
-.about-features{
-    background:#fff;
-    padding:70px 8%;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
+/* Features */
+
+.about-features {
+    background: #fff;
+    padding: 70px 8%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
 }
 
-.feature-card{
-    text-align:center;
-    padding:35px 25px;
-    border-radius:14px;
-    transition:.35s;
-    border:1px solid #efe4d8;
+.feature-card {
+    text-align: center;
+    padding: 35px 25px;
+    border-radius: 14px;
+    transition: .35s;
+    border: 1px solid #efe4d8;
 }
 
-.feature-card:hover{
-    transform:translateY(-8px);
-    background:#fffaf5;
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+.feature-card:hover {
+    transform: translateY(-8px);
+    background: #fffaf5;
+    box-shadow: 0 15px 35px rgba(0,0,0,.08);
 }
 
-.feature-icon{
-    width:75px;
-    height:75px;
-    margin:auto;
-    border-radius:50%;
-    background:#f8efe4;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-bottom:22px;
+.feature-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 22px;
+    border-radius: 50%;
+    background: #f8efe4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.feature-icon i{
-    color:#b8894f;
-    font-size:28px;
+.feature-icon i {
+    color: #b8894f;
+    font-size: 28px;
 }
 
-.feature-card h3{
-    font-family:var(--font-primary);
-    color:#2d1b13;
-    margin-bottom:14px;
-    font-size:23px;
+.feature-card h3 {
+    font-family: var(--font-primary);
+    color: #2d1b13;
+    margin-bottom: 14px;
+    font-size: 23px;
 }
 
-.feature-card p{
-    color:#777;
-    font-size:15px;
-    line-height:27px;
+.feature-card p {
+    color: #777;
+    font-size: 15px;
+    line-height: 27px;
 }
 
-/* =============================
-   STATS
-============================= */
 
-.about-stats{
-    background:#f5eee6;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-    padding:70px 8%;
+/* Stats */
+
+.about-stats {
+    background: #f5eee6;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 30px;
+    padding: 70px 8%;
 }
 
-.stat-box{
-    text-align:center;
+.stat-box {
+    text-align: center;
 }
 
-.stat-box h2{
-    font-family:var(--font-primary);
-    font-size:54px;
-    color:#2d1b13;
+.stat-box h2 {
+    font-family: var(--font-primary);
+    font-size: 54px;
+    color: #2d1b13;
 }
 
-.stat-box p{
-    margin-top:10px;
-    color:#777;
-    letter-spacing:1px;
+.stat-box p {
+    margin-top: 10px;
+    color: #777;
+    letter-spacing: 1px;
 }
 
-/* =============================
-   CTA
-============================= */
 
-.about-cta{
-    background:#2d1b13;
-    color:#fff;
-    text-align:center;
-    padding:90px 8%;
+/* CTA */
+
+.about-cta {
+    background: #2d1b13;
+    color: #fff;
+    text-align: center;
+    padding: 90px 8%;
 }
 
-.about-cta h2{
-    font-family:var(--font-primary);
-    font-size:50px;
-    line-height:1.3;
-    margin-bottom:25px;
+.about-cta h2 {
+    font-family: var(--font-primary);
+    font-size: 50px;
+    line-height: 1.3;
+    margin-bottom: 25px;
 }
 
-.about-cta p{
-    color:#ddd;
-    font-size:18px;
-    margin-bottom:40px;
+.about-cta p {
+    color: #ddd;
+    font-size: 18px;
+    margin-bottom: 40px;
 }
 
-.about-btn{
-    display:inline-block;
-    background:#b8894f;
-    color:#fff;
-    text-decoration:none;
-    padding:18px 48px;
-    border-radius:6px;
-    transition:.35s;
-    font-weight:600;
-    letter-spacing:1px;
+.about-btn {
+    display: inline-block;
+    background: #b8894f;
+    color: #fff;
+    text-decoration: none;
+    padding: 18px 48px;
+    border-radius: 6px;
+    transition: .35s;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
-.about-btn:hover{
-    background:#fff;
-    color:#2d1b13;
+.about-btn:hover {
+    background: #fff;
+    color: #2d1b13;
 }
 
-/* ===================================================
-   TABLET
-=================================================== */
+
+/* Tablet */
 
 @media(max-width:992px){
 
-.about-container{
-    grid-template-columns:1fr;
-    gap:50px;
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-features,
+    .about-stats {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about-header h1 {
+        font-size: 38px;
+    }
+
+    .about-content h2 {
+        font-size: 34px;
+    }
+
+    .about-cta h2 {
+        font-size: 38px;
+    }
 }
 
-.about-content{
-    text-align:center;
-}
 
-.about-features{
-    grid-template-columns:repeat(2,1fr);
-}
-
-.about-stats{
-    grid-template-columns:repeat(2,1fr);
-}
-
-.about-header h1{
-    font-size:38px;
-}
-
-.about-content h2{
-    font-size:34px;
-}
-
-.about-cta h2{
-    font-size:38px;
-}
-
-}
-
-/* ===================================================
-   MOBILE
-=================================================== */
+/* Mobile */
 
 @media(max-width:768px){
 
-.about-page{
-    padding:50px 20px;
+    .about-page {
+        padding: 50px 20px;
+    }
+
+    .about-header {
+        text-align: center;
+    }
+
+    .about-header h1 {
+        font-size: 32px;
+    }
+
+    .about-content h2 {
+        font-size: 28px;
+    }
+
+    .about-content p {
+        font-size: 15px;
+        line-height: 28px;
+    }
+
+    .signature {
+        font-size: 26px;
+    }
+
+    .about-features,
+    .about-stats {
+        grid-template-columns: 1fr;
+        padding: 50px 20px;
+    }
+
+    .about-cta {
+        padding: 60px 20px;
+    }
+
+    .about-cta h2 {
+        font-size: 30px;
+    }
+
+    .about-btn {
+        padding: 15px 34px;
+    }
 }
 
-.about-header{
-    text-align:center;
-}
 
-.about-header h1{
-    font-size:32px;
-}
-
-.about-content h2{
-    font-size:28px;
-}
-
-.about-content p{
-    font-size:15px;
-    line-height:28px;
-}
-
-.signature{
-    font-size:26px;
-}
-
-.about-features{
-    grid-template-columns:1fr;
-    padding:50px 20px;
-}
-
-.about-stats{
-    grid-template-columns:1fr;
-    padding:50px 20px;
-}
-
-.about-cta{
-    padding:60px 20px;
-}
-
-.about-cta h2{
-    font-size:30px;
-}
-
-.about-cta p{
-    font-size:16px;
-}
-
-.about-btn{
-    padding:15px 34px;
-}
-
-}
-
-/* ===================================================
-   SMALL MOBILE
-=================================================== */
+/* Small Mobile */
 
 @media(max-width:480px){
 
-.about-header h1{
-    font-size:27px;
-}
+    .about-header h1 {
+        font-size: 27px;
+    }
 
-.about-content h2{
-    font-size:24px;
-}
+    .about-content h2 {
+        font-size: 24px;
+    }
 
-.about-content p{
-    font-size:14px;
-}
+    .about-content p {
+        font-size: 14px;
+    }
 
-.feature-card{
-    padding:28px 20px;
-}
+    .feature-card {
+        padding: 28px 20px;
+    }
 
-.feature-card h3{
-    font-size:20px;
-}
+    .feature-card h3 {
+        font-size: 20px;
+    }
 
-.stat-box h2{
-    font-size:42px;
-}
+    .stat-box h2 {
+        font-size: 42px;
+    }
 
-.about-cta h2{
-    font-size:26px;
-}
+    .about-cta h2 {
+        font-size: 26px;
+    }
 
-.about-btn{
-    width:100%;
-    text-align:center;
-}
-
+    .about-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
